@@ -1,0 +1,2194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Quiz da Eleição por W Sales — Lula vs Flávio (TSE 2026)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #040814;
+      --bg-card: rgba(10, 18, 42, 0.95);
+      --gold-primary: #ffd700;
+      --gold-secondary: #f5b000;
+      --gold-dark: #b8860b;
+      --gold-gradient: linear-gradient(135deg, #fff3a8 0%, #ffd700 50%, #b8860b 100%);
+      --matrix-green: #00e676;
+      --blue-glow: #1e88e5;
+      --lula-red: #e53935;
+      --flavio-blue: #1976d2;
+      --green-correct: #00e676;
+      --leo-cyan: #00e5ff;
+      --text-main: #f0f4f8;
+      --font-display: 'Cinzel', Georgia, serif;
+      --font-body: 'Montserrat', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 50% 10%, rgba(0, 230, 118, 0.16) 0%, transparent 60%),
+        radial-gradient(circle at 10% 85%, rgba(229, 57, 53, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 90% 85%, rgba(25, 118, 210, 0.22) 0%, transparent 50%),
+        linear-gradient(to bottom, #040814, #081126, #02050e);
+      min-height: 100vh;
+      color: var(--text-main);
+      font-family: var(--font-body);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      overflow-x: hidden;
+      padding-bottom: 14px;
+    }
+
+    /* BARRA SUPERIOR */
+    header {
+      width: 100%;
+      max-width: 880px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid rgba(0, 230, 118, 0.4);
+      background: rgba(4, 8, 20, 0.94);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    }
+
+    .brand-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .host-thumb {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top center;
+      border: 2px solid var(--gold-primary);
+      box-shadow: 0 0 14px rgba(255, 215, 0, 0.6);
+      flex-shrink: 0;
+    }
+
+    .brand-title {
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      line-height: 1.15;
+    }
+
+    .brand-subtitle {
+      font-size: 0.72rem;
+      color: var(--matrix-green);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-icon {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 215, 0, 0.35);
+      color: var(--gold-primary);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-icon:hover {
+      background: rgba(255, 215, 0, 0.2);
+      transform: scale(1.08);
+    }
+
+    /* CONTAINER PRINCIPAL DO PALCO */
+    main {
+      width: 100%;
+      max-width: 860px;
+      flex: 1;
+      padding: 10px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* TELA DE LOBBY COM A CAPA ÉPICA DE W SALES MATRIX (100% RESPONSIVA MOBILE) */
+    .lobby-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 5, 14, 0.98);
+      backdrop-filter: blur(14px);
+      z-index: 100;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 14px 12px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .lobby-card {
+      background: linear-gradient(145deg, #09132e, #040817);
+      border: 3px solid var(--matrix-green);
+      border-radius: 20px;
+      max-width: 480px;
+      width: 100%;
+      margin: auto 0;
+      padding: 16px 14px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95), 0 0 50px rgba(0, 230, 118, 0.35);
+      text-align: center;
+      animation: popIn 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .poster-container {
+      position: relative;
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto 12px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2.5px solid var(--gold-primary);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 230, 118, 0.4);
+      background: #010a08;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .poster-img {
+      width: 100%;
+      height: auto;
+      max-height: 44vh;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .lobby-invitation {
+      font-size: 0.82rem;
+      color: #e0e0e0;
+      margin-bottom: 12px;
+      line-height: 1.42;
+      background: rgba(0, 0, 0, 0.55);
+      padding: 9px 11px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 215, 0, 0.25);
+    }
+
+    .input-group {
+      text-align: left;
+      margin-bottom: 12px;
+    }
+
+    .input-label {
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .input-name {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.65);
+      border: 2px solid rgba(0, 230, 118, 0.5);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-family: var(--font-body);
+      font-size: 0.98rem;
+      color: #ffffff;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .input-name:focus {
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 18px rgba(255, 215, 0, 0.6);
+    }
+
+    .btn-start {
+      width: 100%;
+      background: var(--gold-gradient);
+      color: #060b19;
+      border: none;
+      border-radius: 14px;
+      padding: 12px 10px;
+      font-family: var(--font-display);
+      font-size: 0.84rem;
+      font-weight: 900;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 50px;
+    }
+
+    .btn-start:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 230, 118, 0.7);
+    }
+
+    /* CARD DE ATRAÇÃO DO LÉO IA NO LOBBY */
+    .leo-promo-card {
+      margin-top: 14px;
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.12), rgba(0, 230, 118, 0.08));
+      border: 1.5px solid var(--leo-cyan);
+      border-radius: 14px;
+      padding: 12px 14px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: 0 4px 20px rgba(0, 229, 255, 0.2);
+    }
+
+    .leo-promo-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .leo-promo-icon {
+      font-size: 1.5rem;
+      animation: robotPulse 2s infinite ease-in-out;
+    }
+
+    @keyframes robotPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15) rotate(5deg); }
+    }
+
+    .leo-promo-title {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.25;
+    }
+
+    .leo-promo-title strong {
+      color: var(--leo-cyan);
+    }
+
+    .btn-leo-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #00e5ff 0%, #00b0ff 100%);
+      color: #040814;
+      text-decoration: none;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 900;
+      padding: 10px 14px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 229, 255, 0.4);
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .btn-leo-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 229, 255, 0.6);
+      filter: brightness(1.1);
+    }
+
+    /* PLACAR E DUELO NO TOPO (COMPACTO MOBILE) */
+    .duel-stage {
+      width: 100%;
+      background: var(--bg-card);
+      border: 2px solid rgba(255, 215, 0, 0.35);
+      border-radius: 14px;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), inset 0 0 25px rgba(30, 136, 229, 0.2);
+    }
+
+    .candidate-card {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .candidate-card.lula {
+      justify-content: flex-start;
+    }
+
+    .candidate-card.flavio {
+      justify-content: flex-end;
+      text-align: right;
+    }
+
+    .pill-badge {
+      font-size: 0.9rem;
+      font-weight: 900;
+      padding: 5px 12px;
+      border-radius: 18px;
+      letter-spacing: 1px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.6);
+      flex-shrink: 0;
+    }
+
+    .pill-badge.red-13 {
+      background: radial-gradient(circle, #ff1744, #b71c1c);
+      color: #ffffff;
+      border: 2px solid #ff8a80;
+      box-shadow: 0 0 16px rgba(255, 23, 68, 0.7);
+    }
+
+    .pill-badge.blue-22 {
+      background: radial-gradient(circle, #2979ff, #0d47a1);
+      color: #ffffff;
+      border: 2px solid #82b1ff;
+      box-shadow: 0 0 16px rgba(41, 121, 255, 0.7);
+    }
+
+    .candidate-info h4 {
+      font-size: 0.92rem;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .candidate-info span {
+      font-size: 0.68rem;
+      color: #90caf9;
+      font-weight: 600;
+    }
+
+    .prize-display {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 12px;
+      background: rgba(0, 0, 0, 0.55);
+      border: 1.5px solid rgba(255, 215, 0, 0.45);
+      border-radius: 10px;
+      min-width: 140px;
+    }
+
+    .prize-label {
+      font-size: 0.65rem;
+      color: #ffd54f;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+    }
+
+    .prize-value {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 900;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 18px rgba(255, 215, 0, 0.6);
+    }
+
+    .timer-ring {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #e0e0e0;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 1px;
+    }
+
+    /* BANNER DE ANÚNCIO DE VALOR (RENOVA A CADA PERGUNTA) */
+    .prize-announcer-banner {
+      width: 100%;
+      background: linear-gradient(90deg, rgba(0,230,118,0) 0%, rgba(0,230,118,0.2) 50%, rgba(0,230,118,0) 100%);
+      border-top: 1px solid rgba(0,230,118,0.5);
+      border-bottom: 1px solid rgba(0,230,118,0.5);
+      padding: 6px 10px;
+      text-align: center;
+      font-size: 0.84rem;
+      font-weight: 900;
+      color: var(--matrix-green);
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      animation: pulseGlow 2s infinite ease-in-out;
+    }
+
+    /* AJUDAS DO SHOW DO MILHÃO (TOUCH AMIGÁVEL NO CELULAR) */
+    .lifelines-bar {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+    }
+
+    .btn-lifeline {
+      background: rgba(18, 30, 66, 0.88);
+      border: 1px solid rgba(255, 215, 0, 0.35);
+      border-radius: 10px;
+      padding: 8px 3px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      touch-action: manipulation;
+    }
+
+    .btn-lifeline:hover:not(:disabled) {
+      background: rgba(255, 215, 0, 0.2);
+      border-color: var(--gold-primary);
+      transform: translateY(-2px);
+    }
+
+    .btn-lifeline:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+      border-color: rgba(255, 255, 255, 0.1);
+      filter: grayscale(1);
+    }
+
+    .btn-lifeline .icon {
+      font-size: 1.25rem;
+    }
+
+    /* CARD DA PERGUNTA */
+    .question-card {
+      width: 100%;
+      background: linear-gradient(135deg, rgba(16, 29, 66, 0.96), rgba(8, 15, 38, 0.98));
+      border: 2px solid var(--gold-primary);
+      border-radius: 16px;
+      padding: 18px 16px;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.65), 0 0 25px rgba(255, 215, 0, 0.2);
+      position: relative;
+      text-align: center;
+    }
+
+    .question-tag {
+      display: inline-block;
+      background: rgba(0, 230, 118, 0.15);
+      border: 1px solid var(--matrix-green);
+      color: var(--matrix-green);
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    .question-text {
+      font-size: 1.12rem;
+      font-weight: 700;
+      line-height: 1.45;
+      color: #ffffff;
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* CARD DE SUSPENSE DE 5 SEGUNDOS: PARTICIPANTE PENSANDO + BATIMENTOS ECG */
+    .suspense-box {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 0, 0, 0.75);
+      border: 2px solid var(--gold-primary);
+      border-radius: 14px;
+      padding: 10px 14px;
+      margin-top: 12px;
+      animation: heartbeatPulse 1s infinite;
+      box-shadow: 0 0 28px rgba(255, 215, 0, 0.4);
+    }
+
+    @keyframes heartbeatPulse {
+      0%, 100% { transform: scale(1); border-color: var(--gold-primary); }
+      50% { transform: scale(1.02); border-color: #ff1744; }
+    }
+
+    .suspense-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--gold-primary);
+    }
+
+    .ecg-line {
+      font-size: 1.1rem;
+      color: #ff1744;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px rgba(255, 23, 68, 0.8);
+    }
+
+    .suspense-countdown {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 215, 0, 0.4);
+    }
+
+    /* GRADE DAS 4 ALTERNATIVAS (ERGONOMIA TOTAL DE TOQUE NO CELULAR) */
+    .options-grid {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .btn-option {
+      width: 100%;
+      min-height: 54px;
+      background: linear-gradient(135deg, #101c40 0%, #0a122c 100%);
+      border: 2px solid rgba(255, 215, 0, 0.4);
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      color: #ffffff;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-align: left;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+      position: relative;
+      touch-action: manipulation;
+    }
+
+    .btn-option:hover:not(:disabled) {
+      border-color: var(--gold-primary);
+      background: linear-gradient(135deg, #1a2c63 0%, #101c40 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
+    }
+
+    .option-letter {
+      background: var(--gold-gradient);
+      color: #060b19;
+      font-family: var(--font-display);
+      font-weight: 900;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .option-content {
+      flex: 1;
+    }
+
+    .option-desc {
+      font-size: 0.72rem;
+      color: #90caf9;
+      font-weight: 500;
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* ESTADOS DE RESPOSTA */
+    .btn-option.selected {
+      background: #f5b000 !important;
+      color: #000 !important;
+      border-color: #ffffff !important;
+      transform: scale(1.02);
+      box-shadow: 0 0 25px rgba(245, 176, 0, 0.8) !important;
+    }
+
+    .btn-option.selected .option-desc {
+      color: #222 !important;
+    }
+
+    .btn-option.correct {
+      background: linear-gradient(135deg, #00c853 0%, #007e33 100%) !important;
+      border-color: #b9f6ca !important;
+      box-shadow: 0 0 28px rgba(0, 230, 118, 0.75) !important;
+      color: #fff !important;
+    }
+
+    .btn-option.wrong {
+      background: linear-gradient(135deg, #d50000 0%, #8b0000 100%) !important;
+      border-color: #ff8a80 !important;
+      box-shadow: 0 0 28px rgba(213, 0, 0, 0.65) !important;
+      color: #fff !important;
+    }
+
+    .btn-option.eliminated {
+      opacity: 0.18 !important;
+      filter: grayscale(1);
+      cursor: not-allowed;
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* MODAL DE FONTE OFICIAL (RIGOR MÁXIMO DO TSE) */
+    .source-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 7, 18, 0.92);
+      backdrop-filter: blur(10px);
+      z-index: 110;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+    }
+
+    .source-card {
+      background: linear-gradient(145deg, #0d1b3e, #060e22);
+      border: 2.5px solid var(--gold-primary);
+      border-radius: 18px;
+      max-width: 580px;
+      width: 100%;
+      padding: 22px 18px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95), 0 0 45px rgba(255, 215, 0, 0.3);
+      position: relative;
+      animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .source-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 215, 0, 0.15);
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-primary);
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 30px;
+      width: fit-content;
+      margin-bottom: 10px;
+    }
+
+    .source-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .source-title.acerto {
+      color: var(--green-correct);
+    }
+
+    .source-title.erro {
+      color: #ff5252;
+    }
+
+    .source-box {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      border-radius: 12px;
+      padding: 14px;
+      margin: 12px 0;
+      text-align: left;
+    }
+
+    .source-item {
+      margin-bottom: 7px;
+      font-size: 0.86rem;
+      line-height: 1.42;
+      color: #e0e0e0;
+    }
+
+    .source-item strong {
+      color: var(--gold-primary);
+    }
+
+    .source-quote {
+      font-style: italic;
+      background: rgba(255, 255, 255, 0.05);
+      border-left: 3px solid var(--gold-primary);
+      padding: 8px 12px;
+      border-radius: 0 8px 8px 0;
+      margin-top: 8px;
+      font-size: 0.84rem;
+      color: #b0bec5;
+      line-height: 1.42;
+    }
+
+    .btn-next {
+      width: 100%;
+      background: var(--gold-gradient);
+      color: #060b19;
+      border: none;
+      border-radius: 12px;
+      padding: 14px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.45);
+      transition: all 0.2s ease;
+    }
+
+    .btn-next:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 215, 0, 0.65);
+    }
+
+    /* MODAL DE RESULTADO / CHEQUE DE R$ 1 MILHÃO COM A FRASE OFICIAL DA OPÇÃO 2 */
+    .finish-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 6, 18, 0.97);
+      backdrop-filter: blur(12px);
+      z-index: 120;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      overflow-y: auto;
+    }
+
+    .cheque-card {
+      background: linear-gradient(135deg, #fffde7 0%, #fff9c4 40%, #fff59d 100%);
+      color: #1a237e;
+      border: 3.5px solid var(--gold-dark);
+      border-radius: 18px;
+      max-width: 580px;
+      width: 100%;
+      padding: 20px 16px;
+      box-shadow: 0 20px 65px rgba(0, 0, 0, 0.95), 0 0 55px rgba(255, 215, 0, 0.55);
+      text-align: center;
+      position: relative;
+    }
+
+    .cheque-header {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--gold-dark);
+      padding-bottom: 6px;
+      margin-bottom: 10px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #5d4037;
+    }
+
+    .cheque-value {
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      font-weight: 900;
+      color: #1b5e20;
+      margin: 8px 0;
+      letter-spacing: 1px;
+    }
+
+    .cheque-payee {
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: #0d47a1;
+      border-bottom: 1px dashed #78909c;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+    }
+
+    .cheque-signature-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 10px;
+      padding-top: 6px;
+      border-top: 1px solid rgba(0,0,0,0.15);
+    }
+
+    .cheque-signature {
+      font-size: 0.85rem;
+      font-style: italic;
+      color: #37474f;
+      font-weight: 800;
+      text-align: right;
+    }
+
+    /* MENSAGEM FINAL DE CONSCIENTIZAÇÃO CIDADÃ (OPÇÃO 2 APROVADA POR SALES) */
+    .civic-message-box {
+      background: linear-gradient(135deg, #0a1b38, #050d1e);
+      border: 2px solid var(--gold-primary);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 12px 0 14px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+      text-align: center;
+    }
+
+    .civic-quote {
+      font-size: 0.9rem;
+      font-weight: 700;
+      line-height: 1.48;
+      color: #ffffff;
+      font-style: italic;
+    }
+
+    .civic-author {
+      display: block;
+      margin-top: 6px;
+      font-size: 0.82rem;
+      font-weight: 900;
+      color: var(--gold-primary);
+      letter-spacing: 0.5px;
+    }
+
+    .stats-summary {
+      background: rgba(255, 255, 255, 0.65);
+      border-radius: 12px;
+      padding: 10px;
+      margin-bottom: 14px;
+      font-size: 0.85rem;
+      color: #263238;
+      display: flex;
+      justify-content: space-around;
+      font-weight: 800;
+    }
+
+    .share-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .btn-share-wa {
+      background: #25d366;
+      color: #ffffff;
+      border: none;
+      border-radius: 12px;
+      padding: 14px;
+      font-size: 1rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+      transition: all 0.2s;
+    }
+
+    /* BOTÃO DO LÉO NA TELA FINAL */
+    .btn-leo-final {
+      background: linear-gradient(135deg, #00e5ff 0%, #00b0ff 100%);
+      color: #040814;
+      text-decoration: none;
+      border-radius: 12px;
+      padding: 13px;
+      font-size: 0.92rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 18px rgba(0, 229, 255, 0.4);
+      transition: all 0.2s;
+    }
+
+    .btn-leo-final:hover {
+      filter: brightness(1.1);
+      transform: translateY(-2px);
+    }
+
+    .btn-restart {
+      background: #1a237e;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 13px;
+      font-size: 0.92rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    /* RODAPÉ INSTITUCIONAL */
+    footer {
+      width: 100%;
+      max-width: 860px;
+      text-align: center;
+      font-size: 0.72rem;
+      color: #90caf9;
+      opacity: 0.85;
+      padding: 6px 14px;
+      line-height: 1.4;
+    }
+
+    footer a {
+      color: var(--gold-primary);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.85); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.85; }
+      50% { opacity: 1; text-shadow: 0 0 10px rgba(0,230,118,0.8); }
+    }
+
+    @media (max-width: 600px) {
+      .question-text {
+        font-size: 1.02rem;
+        min-height: 52px;
+      }
+      .prize-value {
+        font-size: 1.25rem;
+      }
+      .btn-option {
+        padding: 11px 12px;
+        font-size: 0.9rem;
+      }
+      .cheque-value {
+        font-size: 1.7rem;
+      }
+      .poster-container {
+        max-width: 290px;
+        margin: 0 auto 10px;
+      }
+      .poster-img {
+        width: 100%;
+        height: auto;
+        max-height: 42vh;
+        object-fit: contain;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA SUPERIOR -->
+  <header>
+    <div class="brand-container">
+      <img src="capa_quiz_w_sales.jpg" alt="W Sales" class="host-thumb" id="headerHostThumb" onerror="this.style.display='none'">
+      <div>
+        <div class="brand-title">Quiz da Eleição</div>
+        <div class="brand-subtitle">Por W Sales • Duelo 13 vs 22 (TSE 2026)</div>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button class="btn-icon" id="btnSound" title="Ligar/Desligar Efeitos Sonoros">🔊</button>
+      <button class="btn-icon" id="btnVoice" title="Voz do Apresentador">🎙️</button>
+      <button class="btn-icon" id="btnRules" title="Regras e Fontes Oficiais">⚖️</button>
+    </div>
+  </header>
+
+  <!-- TELA DE LOBBY COM A CAPA ÉPICA DE W SALES MATRIX -->
+  <div class="lobby-overlay" id="lobbyOverlay">
+    <div class="lobby-card">
+      <!-- PÔSTER OFICIAL MATRIX W SALES -->
+      <div class="poster-container">
+        <img src="capa_quiz_w_sales.jpg" alt="Quiz da Eleição por W Sales" class="poster-img">
+      </div>
+
+      <p class="lobby-invitation">
+        "E aí, meu amigo! Você escolhe a pílula <strong>13</strong> ou a pílula <strong>22</strong>? Criei este quiz com as propostas oficiais de Lula e Flávio protocoladas no TSE. Quero ver se você conhece a verdade ou cai nas conversas de WhatsApp! Valendo <strong>R$ 1 Milhão de Reais!</strong>"
+      </p>
+
+      <div class="input-group">
+        <label class="input-label" for="txtPlayerName">Como o W Sales deve te chamar no jogo:</label>
+        <input type="text" id="txtPlayerName" class="input-name" placeholder="Digite seu nome..." value="Sales" maxlength="25">
+      </div>
+
+      <button class="btn-start" id="btnEnterStudio">ACEITAR DESAFIO & ENTRAR NA MATRIX 🎬</button>
+
+      <!-- CARD COMERCIAL DE ALTA CONVERSÃO DO LÉO IA NO WHATSAPP -->
+      <div class="leo-promo-card">
+        <div class="leo-promo-header">
+          <div class="leo-promo-icon">🤖</div>
+          <div class="leo-promo-title">
+            Quer um jogo interativo para sua <strong>empresa, evento ou campanha</strong>?
+          </div>
+        </div>
+        <a href="https://wa.me/5598970091643?text=Ol%C3%A1%20L%C3%A9o!%20Joguei%20o%20Quiz%20da%20Elei%C3%A7%C3%A3o%20do%20W%20Sales%20e%20gostaria%20de%20criar%20um%20jogo%20personalizado%20para%20o%20meu%20evento%20ou%20empresa!" target="_blank" class="btn-leo-cta">
+          <span>Falar com o LÉO no WhatsApp</span>
+          <span>💬</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- PALCO DO DUELO E PLACAR -->
+    <div class="duel-stage">
+      <div class="candidate-card lula">
+        <div class="pill-badge red-13">13</div>
+        <div class="candidate-info">
+          <h4>Lula</h4>
+          <span>PT • Vermelha</span>
+        </div>
+      </div>
+
+      <div class="prize-display">
+        <span class="prize-label" id="lblPlayerBadge">JOGADOR: SALES</span>
+        <span class="prize-value" id="lblPrize">R$ 1 MIL</span>
+        <div class="timer-ring">
+          <span>⏱️</span>
+          <span id="lblTimer">30s</span>
+        </div>
+      </div>
+
+      <div class="candidate-card flavio">
+        <div class="candidate-info">
+          <h4>Flávio Bolsonaro</h4>
+          <span>PL • Azul</span>
+        </div>
+        <div class="pill-badge blue-22">22</div>
+      </div>
+    </div>
+
+    <!-- BANNER DE ANÚNCIO DE VALOR (RENOVA A CADA PERGUNTA) -->
+    <div class="prize-announcer-banner" id="lblAnnounceBanner">
+      🎙️ VAMOS À PERGUNTA QUE VALE R$ 1.000 REAIS!
+    </div>
+
+    <!-- AJUDAS DO SHOW DO MILHÃO -->
+    <div class="lifelines-bar">
+      <button class="btn-lifeline" id="btnHelpTSE" title="Elimina 2 alternativas incorretas">
+        <span class="icon">📜</span>
+        <span>Cartas TSE</span>
+      </button>
+      <button class="btn-lifeline" id="btnHelpUniv" title="Consulta a opinião dos eleitores">
+        <span class="icon">👥</span>
+        <span>Eleitores</span>
+      </button>
+      <button class="btn-lifeline" id="btnHelpSkip" title="Pula a pergunta sem perder">
+        <span class="icon">⏭️</span>
+        <span id="lblSkipCount">Pular (3)</span>
+      </button>
+      <button class="btn-lifeline" id="btnHelpStop" title="Para e leva o prêmio garantido">
+        <span class="icon">🛑</span>
+        <span>Parar</span>
+      </button>
+    </div>
+
+    <!-- CARD DA PERGUNTA -->
+    <div class="question-card">
+      <div class="question-tag" id="lblCategory">EIXO TEMÁTICO</div>
+      <div class="question-text" id="lblQuestionText">Carregando pergunta oficial do plano de governo...</div>
+      
+      <!-- CARD DE SUSPENSE DE 5 SEGUNDOS: PARTICIPANTE PENSANDO + BATIMENTOS ECG -->
+      <div class="suspense-box" id="suspenseBox">
+        <div class="suspense-header">
+          <span>🧠</span>
+          <span id="lblPlayerThinkingText">Sales está pensando...</span>
+        </div>
+        <div class="ecg-line">ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ</div>
+        <div class="suspense-countdown" id="lblSuspenseCountdown">5s</div>
+      </div>
+    </div>
+
+    <!-- OPÇÕES DO SHOW DO MILHÃO -->
+    <div class="options-grid" id="optionsGrid">
+      <!-- Inserido dinamicamente via JavaScript -->
+    </div>
+  </main>
+
+  <!-- MODAL DE FONTE OFICIAL (RIGOR MÁXIMO DO TSE) -->
+  <div class="source-overlay" id="sourceOverlay">
+    <div class="source-card">
+      <div class="source-badge">
+        <span>🏛️</span>
+        <span>AUDITORIA OFICIAL — TSE DIVULGACANDCONTAS 2026</span>
+      </div>
+      <h3 class="source-title" id="sourceTitle">CERTA RESPOSTA!</h3>
+
+      <div class="source-box">
+        <div class="source-item">
+          <strong>Proposta Real:</strong> <span id="sourceProposal"></span>
+        </div>
+        <div class="source-item">
+          <strong>Documento Registrado:</strong> <span id="sourceDoc"></span>
+        </div>
+        <div class="source-item">
+          <strong>Eixo Temático / Página:</strong> <span id="sourcePage"></span>
+        </div>
+        <div class="source-quote" id="sourceQuote"></div>
+      </div>
+
+      <button class="btn-next" id="btnNextQuestion">Próxima Pergunta ➡️</button>
+    </div>
+  </div>
+
+  <!-- MODAL DE VITÓRIA / FIM DE JOGO -->
+  <div class="finish-overlay" id="finishOverlay">
+    <div class="cheque-card">
+      <div class="cheque-header">
+        <span>BANCO ELEITORAL DA REPÚBLICA</span>
+        <span>SÉRIE ESPECIAL W SALES 2026</span>
+      </div>
+      <p style="font-size:0.75rem; font-weight:800; text-transform:uppercase; color:#5d4037;">PAGUE-SE POR ESTE CHEQUE A QUANTIA DE:</p>
+      <div class="cheque-value" id="lblFinalPrize">R$ 1.000.000</div>
+      <div class="cheque-payee" id="lblFinalTitle">CAMPEÃO DO QUIZ DO W SALES!</div>
+
+      <div class="cheque-signature-row">
+        <span style="font-size:0.72rem; color:#555;">Auditoria TSE 2026</span>
+        <div class="cheque-signature">
+          Chancelado por: <strong>W Sales</strong> ✍️
+        </div>
+      </div>
+
+      <!-- MENSAGEM FINAL DE CONSCIENTIZAÇÃO CIDADÃ (OPÇÃO 2 APROVADA POR SALES) -->
+      <div class="civic-message-box">
+        <p class="civic-quote">
+          "Mais importante do que jogar e faturar R$ 1 Milhão, é fazer uma boa escolha no segundo turno: o nosso futuro depende do seu voto consciente!"
+        </p>
+        <span class="civic-author">— Um abraço do seu amigo W Sales 🇧🇷</span>
+      </div>
+
+      <div class="stats-summary">
+        <div>Acertos: <strong id="lblTotalCorrect" style="color:#2e7d32;">10/10</strong></div>
+        <div>Fontes: <strong style="color:#1565c0;">100% TSE</strong></div>
+        <div>Nível: <strong id="lblAfinidade" style="color:#e65100;">Cidadão Consciente</strong></div>
+      </div>
+
+      <div class="share-actions">
+        <button class="btn-share-wa" id="btnShareWA">
+          <span>📲</span>
+          <span>Desafiar Amigos no WhatsApp</span>
+        </button>
+        <a href="https://wa.me/5598970091643?text=Ol%C3%A1%20L%C3%A9o!%20Joguei%20o%20Quiz%20da%20Elei%C3%A7%C3%A3o%20do%20W%20Sales%20e%20gostaria%20de%20criar%20um%20jogo%20personalizado%20para%20o%20meu%20evento%20ou%20empresa!" target="_blank" class="btn-leo-final">
+          <span>🤖</span>
+          <span>Quer um jogo para sua empresa/evento? Fale com o Léo!</span>
+        </a>
+        <button class="btn-restart" id="btnRestart">Jogar Novamente com Novas Perguntas 🔄</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RODAPÉ INSTITUCIONAL -->
+  <footer>
+    Baseado estritamente nos <strong>Planos de Governo Oficiais de 2026</strong> protocolados no <strong>TSE (DivulgaCandContas)</strong>.<br>
+    Zero fake news. Zero boatos. Idealizado pelo seu amigo <strong>W Sales</strong> e desenvolvido com tecnologia <strong>Nativo 360 Ads</strong>.
+  </footer>
+
+  <script>
+    /* ==========================================================================
+       SUPER BANCO DINÂMICO DE PERGUNTAS (POOL OFICIAL TSE 2026)
+       Cada partida sorteia 10 perguntas aleatórias do banco!
+       ========================================================================== */
+    const MASTER_QUESTIONS_POOL = [
+      // --- BLOCO 1: FLÁVIO BOLSONARO (PL) ---
+      {
+        id: "FLA_01",
+        category: "Segurança Pública & Maioridade Penal",
+        question: "Qual candidato registrou no TSE a proposta de reduzir a maioridade penal de 18 para 16 anos (e 14 anos para crimes hediondos) no eixo 'Brasil Sem Medo'?",
+        correctOption: "B",
+        options: {
+          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Coligação Brasil da Esperança" },
+          B: { text: "Flávio Bolsonaro (PL)", desc: "Coligação Para o Brasil Vencer o Atraso" },
+          C: { text: "Ambos defendem essa medida", desc: "Acordo de consenso bipartidário" },
+          D: { text: "Nenhum dos dois (Fake News)", desc: "Boato sem registro eleitoral" }
+        },
+        source: {
+          candidate: "Flávio Bolsonaro (PL)",
+          proposal: "Redução da maioridade penal para 16 anos gerais e 14 anos em crimes hediondos.",
+          doc: "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
+          page: "Eixo Segurança Pública ('Brasil Sem Medo'), Pág. 24.",
+          quote: "«Endurecimento da legislação penal com a diminuição da maioridade penal para 16 anos, e 14 anos nos crimes hediondos, acabando com a sensação de impunidade.»"
+        }
+      },
+      {
+        id: "FLA_02",
+        category: "Reforma Administrativa & Estado Enxuto",
+        question: "Qual candidato estabeleceu como meta oficial cortar no mínimo 10 ministérios e reativar o Programa Nacional de Desestatização (privatizações)?",
+        correctOption: "B",
+        options: {
+          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Coligação Brasil da Esperança" },
+          B: { text: "Flávio Bolsonaro (PL)", desc: "Coligação Para o Brasil Vencer o Atraso" },
+          C: { text: "Ambos defendem essa medida", desc: "Plano de choque de gestão" },
+          D: { text: "Nenhum dos dois (Fake News)", desc: "Informação inverídica" }
+        },
+        source: {
+          candidate: "Flávio Bolsonaro (PL)",
+          proposal: "Redução de ministérios, corte de cargos comissionados e privatização de estatais não estratégicas.",
+          doc: "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
+          page: "Eixo Reforma Administrativa e Estado Enxuto, Págs. 35 e 38.",
+          quote: "«Redução de ao menos 10 pastas ministeriais, corte drástico de cargos comissionados e retomada vigorosa do Programa Nacional de Desestatização.»"
+        }
+      },
+      {
+        id: "FLA_03",
+        category: "Combate ao Narcotráfico & Milícias",
+        question: "Qual candidato registrou a proposta de enquadrar facções criminosas como PCC e Comando Vermelho como 'organizações narcoterroristas'?",
+        correctOption: "B",
+        options: {
+          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Coligação Brasil da Esperança" },
+          B: { text: "Flávio Bolsonaro (PL)", desc: "Coligação Para o Brasil Vencer o Atraso" },
+          C: { text: "Ambos registram esse enquadramento", desc: "Proposta compartilhada" },
+          D: { text: "Nenhum dos dois (Fake News)", desc: "Boato sem respaldo no TSE" }
+        },
+        source: {
+          candidate: "Flávio Bolsonaro (PL)",
+          proposal: "Classificação legal de facções armadas e milícias como organizações narcoterroristas.",
+          doc: "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
+          page: "Eixo Segurança Pública ('Brasil Sem Medo'), Pág. 21.",
+          quote: "«Classificação legal de facções criminosas como PCC, Comando Vermelho e milícias como organizações narcoterroristas, autorizando o emprego pleno da força do Estado.»"
+        }
+      },
+      {
+        id: "FLA_04",
+        category: "Reforma Política & Mandato Presidencial",
+        question: "Qual candidato defende a aprovação de uma PEC para acabar com a reeleição para presidente da República, fixando mandato único?",
+        correctOption: "B",
+        options: {
+          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Coligação Brasil da Esperança" },
+          B: { text: "Flávio Bolsonaro (PL)", desc: "Coligação Para o Brasil Vencer o Atraso" },
+          C: { text: "Ambos defendem mandato único", desc: "Pacto de alternância de poder" },
+          D: { text: "Nenhum dos dois (Fake News)", desc: "Tema ausente nos debates" }
+        },
+        source: {
+          candidate: "Flávio Bolsonaro (PL)",
+          proposal: "Extinção da reeleição no Executivo e cumprimento de mandato único de 5 anos.",
+          doc: "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
+          page: "Eixo Reformas Institucionais e Fortalecimento Democrático, Pág. 12.",
+          quote: "«Defesa intransigente do fim da reeleição para presidente da República, garantindo foco total na administração pública sem contaminação por campanhas eleitorais contínuas.»"
+        }
+      },
+      {
+        id: "FLA_05",
+        category: "Forças Armadas & Blindagem de Fronteiras",
+        question: "Qual candidato registrou no plano de governo a criação de uma 'tropa de elite' das Forças Armadas para patrulhamento armado permanente das fronteiras terrestres?",
+        correctOption: "B",
+        options: {
+          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Coligação Brasil da Esperança" },
+          B: { text: "Flávio Bolsonaro (PL)", desc: "Coligação Para o Brasil Vencer o Atraso" },
+          C: { text: "Ambos defendem essa tropa", desc: "Proposta militar conjunta" },
+          D: { text: "Nenhum dos dois (Fake News)", desc: "Boato de internet" }
+        },
+        source: {
+          candidate: "Flávio Bolsonaro (PL)",
+          proposal: "Criação de tropa de elite militar dedicada a operações especiais nas fronteiras do Brasil.",
+          doc: "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
+          page: "Eixo Segurança Pública ('Brasil Sem Medo'), Pág. 26.",
+          quote: "«Criação de uma força de elite especializada e permanente das Forças Armadas para fechamento e interceptação armada de rotas de tráfico nas fronteiras terrestres.»"
+        }
+      },
+      {
+        id: "FLA_06",
+        category: "Tributação & Desoneração",
+        question: "Qual candidato defende a revisão da reforma tributária para reduzir a alíquota do IVA e desonerar a folha de salários na contratação de jovens de 18 a 24 anos?",
+        correctOption: "B",
+        options: {
+          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Coligação Brasil da Esperança" },
+          B: { text: "Flávio Bolsonaro (PL)", desc: "Coligação Para o Brasil Vencer o Atraso" },
+          C: { text: "Ambos defendem essa medida", desc: "Incentivo jovem compartilhado" },
+          D: { text: "Nenhum dos dois (Fake News)", desc: "Inexistente nos planos" }
+        },
+        source: {
+          candidate: "Flávio Bolsonaro (PL)",
+          proposal: "Redução da alíquota do IVA e desoneração da folha de pagamento para o primeiro emprego jovem.",
+          doc: "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
+          page: "Eixo Economia, Mercado e Competitividade, Pág. 44.",
+          quote: "«Revisão dos parâmetros tributários com teto menor para o IVA e redução drástica de encargos trabalhistas sobre jovens de 18 a 24 anos.»"
+        }
+      },
+
+      // --- BLOCO 2: LULA (PT) ---
+      {
+        id: "LUL_01",
+        category: "Jornada de Trabalho & Escala 6x1",
+        question: "Qual candidato registrou expressamente a proposta de redução da jornada máxima de trabalho para 40 horas semanais (fim da escala 6x1), sem redução de salários?",
+        correctOption: "A",
+        options: {
+          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Coligação Brasil da Esperança" },
+          B: { text: "Flávio Bolsonaro (PL)", desc: "Coligação Para o Brasil Vencer o Atraso" },
+          C: { text: "Ambos defendem essa medida", desc: "Proposta conjunta de governo" },
+          D: { text: "Nenhum dos dois (Fake News)", desc: "Boato espalhado em correntes" }
+        },
+        source: {
+          candidate: "Luiz Inácio Lula da Silva (PT)",
+          proposal: "Redução da jornada máxima de trabalho para 40 horas semanais sem corte salarial.",
+          doc: "Diretrizes para o Programa de Transformação do Brasil (TSE 2026)",
+          page: "Diretriz 8: Valorização do Trabalho e Emprego Digno, Pág. 47.",
+          quote: "«Apoio à redução da jornada máxima de trabalho para 40 horas semanais, superando o modelo 6x1 sem redução salarial, garantindo qualidade de vida e convívio familiar ao trabalhador.»"
+        }
+      },
+      {
+        id: "LUL_02",
+        category: "Segurança Pública Federativa",
+        question: "Qual candidato registrou no TSE a proposta de criar um Ministério da Segurança Pública exclusivo e autônomo, desvinculado do Ministério da Justiça?",
+        correctOption: "A",
+        options: {
+          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Coligação Brasil da Esperança" },
+          B: { text: "Flávio Bolsonaro (PL)", desc: "Coligação Para o Brasil Vencer o Atraso" },
+          C: { text: "Ambos propõem essa criação", desc: "Consenso entre os dois planos" },
+          D: { text: "Nenhum dos dois (Fake News)", desc: "Falso" }
+        },
+        source: {
+          candidate: "Luiz Inácio Lula da Silva (PT)",
+          proposal: "Criação de ministério autônomo específico para a Segurança Pública e o SUSP.",
+          doc: "Diretrizes para o Programa de Transformação do Brasil (TSE 2026)",
+          page: "Diretriz 4: Segurança Pública Cidadã e Inteligência, Pág. 28.",
+          quote: "«Criação do Ministério da Segurança Pública com coordenação nacional federativa, integrando as polícias e fortalecendo o Sistema Único de Segurança Pública (SUSP).»"
+        }
+      },
+      {
+        id: "LUL_03",
+        category: "Trabalhadores por Aplicativo",
+        question: "Qual candidato prevê regras de proteção previdenciária, piso remuneratório e transparência algorítmica para motoristas e entregadores de plataformas?",
+        correctOption: "A",
+        options: {
+          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Coligação Brasil da Esperança" },
+          B: { text: "Flávio Bolsonaro (PL)", desc: "Coligação Para o Brasil Vencer o Atraso" },
+          C: { text: "Ambos os candidatos defendem", desc: "Proposta idêntica registrada" },
+          D: { text: "Nenhum dos dois (Fake News)", desc: "Inexistente nos planos" }
+        },
+        source: {
+          candidate: "Luiz Inácio Lula da Silva (PT)",
+          proposal: "Marco legal de proteção social e transparência para trabalhadores de aplicativos.",
+          doc: "Diretrizes para o Programa de Transformação do Brasil (TSE 2026)",
+          page: "Diretriz 8: Valorização do Trabalho e Plataformas Digitais, Pág. 49.",
+          quote: "«Estabelecimento de marco regulatório protetivo com cobertura previdenciária, piso remuneratório e abertura das regras de algoritmos para entregadores e motoristas de app.»"
+        }
+      },
+      {
+        id: "LUL_04",
+        category: "Saúde & Envelhecimento Ativo",
+        question: "Qual candidato registrou no TSE o programa 'PADI Brasil' com ampliação do atendimento médico e internação domiciliar gratuita para idosos pelo SUS?",
+        correctOption: "A",
+        options: {
+          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Coligação Brasil da Esperança" },
+          B: { text: "Flávio Bolsonaro (PL)", desc: "Coligação Para o Brasil Vencer o Atraso" },
+          C: { text: "Ambos propõem o PADI Brasil", desc: "Programa de saúde conjunto" },
+          D: { text: "Nenhum dos dois (Fake News)", desc: "Programa fictício" }
+        },
+        source: {
+          candidate: "Luiz Inácio Lula da Silva (PT)",
+          proposal: "Criação do PADI Brasil para atendimento e internação domiciliar de idosos no SUS.",
+          doc: "Diretrizes para o Programa de Transformação do Brasil (TSE 2026)",
+          page: "Diretriz 6: Saúde e Cuidado Integral da População Idosa, Pág. 39.",
+          quote: "«Implementação do programa PADI Brasil para expansão do atendimento médico e multidisciplinar domiciliar para pessoas idosas, integrando saúde e assistência social no SUS.»"
+        }
+      },
+      {
+        id: "LUL_05",
+        category: "Educação Básica & Tempo Integral",
+        question: "Qual candidato colocou como meta prioritária a universalização das creches públicas e a expansão da escola em tempo integral em regime de colaboração com os estados?",
+        correctOption: "A",
+        options: {
+          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Coligação Brasil da Esperança" },
+          B: { text: "Flávio Bolsonaro (PL)", desc: "Coligação Para o Brasil Vencer o Atraso" },
+          C: { text: "Ambos colocam como prioridade", desc: "Convergência em creches públicas" },
+          D: { text: "Nenhum dos dois (Fake News)", desc: "Tema ausente" }
+        },
+        source: {
+          candidate: "Luiz Inácio Lula da Silva (PT)",
+          proposal: "Universalização de creches e expansão massiva da educação integral básica.",
+          doc: "Diretrizes para o Programa de Transformação do Brasil (TSE 2026)",
+          page: "Diretriz 5: Educação Emancipadora e Escola em Tempo Integral, Pág. 34.",
+          quote: "«Ampliação acelerada de matrículas em creches e expansão do ensino em tempo integral na rede pública, integrando esportes, cultura e formação tecnológica.»"
+        }
+      },
+      {
+        id: "LUL_06",
+        category: "Transição Ecológica & Neoindustrialização",
+        question: "Qual candidato propõe aliar o Plano de Transição Ecológica e bioeconomia aos investimentos públicos do Novo PAC para descarbonização da indústria nacional?",
+        correctOption: "A",
+        options: {
+          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Coligação Brasil da Esperança" },
+          B: { text: "Flávio Bolsonaro (PL)", desc: "Coligação Para o Brasil Vencer o Atraso" },
+          C: { text: "Ambos defendem essa diretriz", desc: "Proposta ambiental compartilhada" },
+          D: { text: "Nenhum dos dois (Fake News)", desc: "Inexistente" }
+        },
+        source: {
+          candidate: "Luiz Inácio Lula da Silva (PT)",
+          proposal: "Neoindustrialização verde com investimentos estatais em hidrogênio sustentável e bioeconomia.",
+          doc: "Diretrizes para o Programa de Transformação do Brasil (TSE 2026)",
+          page: "Diretriz 9: Reindustrialização, Inovação e Transição Ecológica, Pág. 55.",
+          quote: "«Retomada do protagonismo industrial brasileiro baseado em transição energética justa, descarbonização, investimentos do Novo PAC e liderança global em bioeconomia.»"
+        }
+      },
+
+      // --- BLOCO 3: AMBOS DEFENDEM (CONSENSO OFICIAL) ---
+      {
+        id: "AMB_01",
+        category: "Transferência de Renda & Assistência Social",
+        question: "Qual dos candidatos garante expressamente em seu plano oficial a manutenção dos programas federais de transferência de renda (como o Bolsa Família) para famílias vulneráveis?",
+        correctOption: "C",
+        options: {
+          A: { text: "Apenas Lula (PT)", desc: "Manutenção exclusiva da esquerda" },
+          B: { text: "Apenas Flávio Bolsonaro (PL)", desc: "Reformulação liberal exclusiva" },
+          C: { text: "Ambos garantem a manutenção", desc: "Presente nos dois planos oficiais" },
+          D: { text: "Nenhum dos dois (Extinção total)", desc: "Boato desmentido pelo TSE" }
+        },
+        source: {
+          candidate: "Ambos os Candidatos (Consenso Oficial)",
+          proposal: "Preservação e garantia da transferência de renda às famílias de baixa renda.",
+          doc: "Planos Oficiais de Lula (Pág. 16) e Flávio Bolsonaro (Pág. 52) no TSE",
+          page: "Lula (Diretriz 2) e Flávio (Eixo Social e Dignidade da Família)",
+          quote: "«Tanto Lula quanto Flávio Bolsonaro registraram formalmente no TSE o compromisso inegociável de manter e financiar os programas de transferência de renda para a população vulnerável.»"
+        }
+      },
+      {
+        id: "AMB_02",
+        category: "Educação ProfissIONAL & Ensino Técnico",
+        question: "Qual dos candidatos defende em seu plano de governo a expansão das vagas em cursos técnicos e profissionalizantes integrados ao ensino médio para a juventude?",
+        correctOption: "C",
+        options: {
+          A: { text: "Apenas Lula (PT)", desc: "Expansão exclusiva dos IFs" },
+          B: { text: "Apenas Flávio Bolsonaro (PL)", desc: "Incentivo privado exclusivo" },
+          C: { text: "Ambos os candidatos defendem", desc: "Meta presente em ambos os planos" },
+          D: { text: "Nenhum dos dois (Fake News)", desc: "Tema ausente" }
+        },
+        source: {
+          candidate: "Ambos os Candidatos (Consenso Oficial)",
+          proposal: "Ampliação de cursos técnicos para facilitar o ingresso imediato dos jovens no mercado.",
+          doc: "Planos Oficiais de Lula (Pág. 35) e Flávio Bolsonaro (Pág. 48) no TSE",
+          page: "Lula (Diretriz 5) e Flávio (Eixo 'Brasil que Prepara')",
+          quote: "«A ampliação de vagas no ensino técnico e profissionalizante para jovens do ensino médio é um ponto de convergência explícito nos dois programas de governo registrados.»"
+        }
+      },
+      {
+        id: "AMB_03",
+        category: "Saúde & Farmácia Popular",
+        question: "Qual dos candidatos registrou no plano de governo o compromisso formal de manter e expandir o fornecimento de medicamentos essenciais pelo programa Farmácia Popular?",
+        correctOption: "C",
+        options: {
+          A: { text: "Apenas Lula (PT)", desc: "Criação histórica" },
+          B: { text: "Apenas Flávio Bolsonaro (PL)", desc: "Proposta liberal" },
+          C: { text: "Ambos assumem esse compromisso", desc: "Garantido nos dois programas" },
+          D: { text: "Nenhum dos dois (Extinção)", desc: "Boato falso de redes sociais" }
+        },
+        source: {
+          candidate: "Ambos os Candidatos (Consenso Oficial)",
+          proposal: "Manutenção e gratuidade de remédios para diabetes, hipertensão e asma.",
+          doc: "Planos Oficiais no TSE (Saúde Pública)",
+          page: "Lula (Pág. 38) e Flávio Bolsonaro (Pág. 50)",
+          quote: "«Ambos os candidatos negaram qualquer redução no Farmácia Popular e registraram compromisso de manter o acesso a medicamentos gratuitos na rede conveniada.»"
+        }
+      },
+      {
+        id: "AMB_04",
+        category: "Agronegócio & Crédito Rural",
+        question: "Qual dos candidatos prevê em seu documento oficial a ampliação do crédito rural e apoio à infraestrutura e escoamento da safra do agronegócio?",
+        correctOption: "C",
+        options: {
+          A: { text: "Apenas Flávio Bolsonaro (PL)", desc: "Apoio exclusivo ao agro" },
+          B: { text: "Apenas Lula (PT)", desc: "Plano Safra exclusivo" },
+          C: { text: "Ambos os candidatos garantem", desc: "Presente nos dois programas" },
+          D: { text: "Nenhum dos dois (Fake News)", desc: "Inexistente" }
+        },
+        source: {
+          candidate: "Ambos os Candidatos (Consenso Oficial)",
+          proposal: "Financiamento e suporte logístico ao agronegócio e à produção de alimentos.",
+          doc: "Planos Oficiais no TSE (Agricultura e Abastecimento)",
+          page: "Lula (Pág. 58) e Flávio Bolsonaro (Pág. 46)",
+          quote: "«O fortalecimento do crédito agrícola e investimentos em logística de escoamento para o agronegócio constam formalmente nos planos de ambos os concorrentes ao Planalto.»"
+        }
+      },
+
+      // --- BLOCO 4: FAKE NEWS & BOATOS AUDITADOS PELO TSE ---
+      {
+        id: "FAK_01",
+        category: "Mitos & Boatos Eleitorais (Auditoria TSE)",
+        question: "Qual candidato registrou no plano de governo a proposta de fechar igrejas, templos religiosos ou restringir a liberdade de culto no Brasil?",
+        correctOption: "D",
+        options: {
+          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Acusação comum em correntes" },
+          B: { text: "Flávio Bolsonaro (PL)", desc: "Acusação de opositores" },
+          C: { text: "Ambos propõem essa intervenção", desc: "Acordo de secularização" },
+          D: { text: "Nenhum dos dois (É FAKE NEWS!)", desc: "Boato desmentido oficialmente" }
+        },
+        source: {
+          candidate: "NENHUM DOS DOIS (FAKE NEWS DESMENTIDA PELO TSE)",
+          proposal: "Ambos os planos garantem proteção total e imunidade à liberdade religiosa.",
+          doc: "Painel Oficial de Checagem do TSE ('Fato ou Boato')",
+          page: "Artigo 5º da CF e Planos de Governo Oficiais",
+          quote: "«É FALSO que qualquer um dos candidatos pretenda fechar igrejas ou limitar cultos. Ambos garantem a inviolabilidade da fé, a imunidade tributária dos templos e a liberdade religiosa.»"
+        }
+      },
+      {
+        id: "FAK_02",
+        category: "Mitos & Boatos Eleitorais (Auditoria TSE)",
+        question: "Qual candidato registrou no plano de governo a proposta de confiscar a caderneta de poupança ou investimentos privados dos cidadãos?",
+        correctOption: "D",
+        options: {
+          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Boato de WhatsApp" },
+          B: { text: "Flávio Bolsonaro (PL)", desc: "Boato de redes sociais" },
+          C: { text: "Ambos propõem o confisco", desc: "Inverdade política" },
+          D: { text: "Nenhum dos dois (É FAKE NEWS!)", desc: "Garantia constitucional assegurada" }
+        },
+        source: {
+          candidate: "NENHUM DOS DOIS (FAKE NEWS DESMENTIDA PELO TSE)",
+          proposal: "Inexistente. O confisco de poupança é vedado pela Emenda Constitucional 32.",
+          doc: "Painel Oficial de Checagem do TSE",
+          page: "Constituição Federal e Planos Registrados",
+          quote: "«Nenhum plano prevê qualquer bloqueio ou intervenção sobre a poupança. A proteção ao patrimônio privado é assegurada pela Constituição e garantida por ambos.»"
+        }
+      },
+      {
+        id: "FAK_03",
+        category: "Mitos & Boatos Eleitorais (Auditoria TSE)",
+        question: "Qual candidato registrou no plano de governo a proposta de extinguir o 13º salário ou as férias remuneradas dos trabalhadores com carteira assinada?",
+        correctOption: "D",
+        options: {
+          A: { text: "Flávio Bolsonaro (PL)", desc: "Boato espalhado em grupos" },
+          B: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Acusação eleitoral" },
+          C: { text: "Ambos propõem a extinção", desc: "Falso" },
+          D: { text: "Nenhum dos dois (É FAKE NEWS!)", desc: "Cláusula pétrea constitucional" }
+        },
+        source: {
+          candidate: "NENHUM DOS DOIS (FAKE NEWS DESMENTIDA PELO TSE)",
+          proposal: "Direitos trabalhistas garantidos pelo Art. 7º da Constituição Federal.",
+          doc: "Painel Oficial de Checagem do TSE",
+          page: "Artigo 7º da CF e Planos Registrados",
+          quote: "«O 13º salário e as férias remuneradas são direitos pétreos na CLT e na Constituição. Nenhum dos candidatos propõe sua revogação nos planos oficiais.»"
+        }
+      },
+      {
+        id: "FAK_04",
+        category: "Mitos & Boatos Eleitorais (Auditoria TSE)",
+        question: "Qual candidato registrou no plano de governo a proposta de legalizar irrestritamente a venda de todas as drogas no comércio varejista do Brasil?",
+        correctOption: "D",
+        options: {
+          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Boato eleitoral clássico" },
+          B: { text: "Flávio Bolsonaro (PL)", desc: "Inverdade de internet" },
+          C: { text: "Ambos propõem a legalização", desc: "Totalmente incorreto" },
+          D: { text: "Nenhum dos dois (É FAKE NEWS!)", desc: "Proposta inexistente nos documentos" }
+        },
+        source: {
+          candidate: "NENHUM DOS DOIS (FAKE NEWS DESMENTIDA PELO TSE)",
+          proposal: "Nenhum plano protocolado defende a liberação de comércio de drogas.",
+          doc: "Painel Oficial de Checagem do TSE",
+          page: "Eixos de Segurança Pública e Saúde",
+          quote: "«Não há em nenhum dos planos oficiais qualquer diretriz para legalização ou venda de drogas no comércio. Ambos focam em repressão ao tráfico e tratamento em saúde.»"
+        }
+      }
+    ];
+
+    /* ==========================================================================
+       ESCADA CLÁSSICA DE PRÊMIOS DO SHOW DO MILHÃO
+       ========================================================================== */
+    const PRIZES_LADDER = [
+      { text: "R$ 1.000", spoken: "mil reais" },
+      { text: "R$ 2.000", spoken: "dois mil reais" },
+      { text: "R$ 5.000", spoken: "cinco mil reais" },
+      { text: "R$ 10.000", spoken: "dez mil reais" },
+      { text: "R$ 20.000", spoken: "vinte mil reais" },
+      { text: "R$ 50.000", spoken: "cinquenta mil reais" },
+      { text: "R$ 100.000", spoken: "cem mil reais" },
+      { text: "R$ 200.000", spoken: "duzentos mil reais" },
+      { text: "R$ 500.000", spoken: "quinhentos mil reais" },
+      { text: "R$ 1 MILHÃO", spoken: "um milhão de reais" }
+    ];
+
+    /* ==========================================================================
+       MOTOR DE ÁUDIO WEB AUDIO API + BATIMENTOS CARDÍACOS REAIS
+       ========================================================================== */
+    class AudioEngine {
+      constructor() {
+        this.ctx = null;
+        this.soundEnabled = true;
+        this.voiceEnabled = true;
+        this.bestVoice = null;
+        this.setupVoices();
+      }
+
+      setupVoices() {
+        if (!window.speechSynthesis) return;
+        const load = () => {
+          const voices = window.speechSynthesis.getVoices();
+          this.bestVoice = voices.find(v => v.lang === 'pt-BR' && (v.name.includes('Google') || v.name.includes('Antonio') || v.name.includes('Daniel') || v.name.includes('Francisca'))) 
+            || voices.find(v => v.lang === 'pt-BR' || v.lang.startsWith('pt'))
+            || null;
+        };
+        load();
+        window.speechSynthesis.onvoiceschanged = load;
+      }
+
+      init() {
+        if (!this.ctx) {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          this.ctx = new AudioContext();
+        }
+        if (this.ctx.state === 'suspended') {
+          this.ctx.resume();
+        }
+      }
+
+      speak(text, priority = false) {
+        if (!this.voiceEnabled || !window.speechSynthesis) return;
+        if (priority) {
+          window.speechSynthesis.cancel();
+        }
+        const utterance = new SpeechSynthesisUtterance(text);
+        if (this.bestVoice) utterance.voice = this.bestVoice;
+        utterance.lang = 'pt-BR';
+        utterance.rate = 1.12;
+        utterance.pitch = 1.18;
+        utterance.volume = 1.0;
+        window.speechSynthesis.speak(utterance);
+      }
+
+      playTension() {
+        if (!this.soundEnabled) return;
+        this.init();
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(60, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(75, this.ctx.currentTime + 1.2);
+
+        gain.gain.setValueAtTime(0.09, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 1.2);
+
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 1.2);
+      }
+
+      playHeartbeat() {
+        if (!this.soundEnabled) return;
+        this.init();
+        const now = this.ctx.currentTime;
+        [
+          { t: 0, f1: 75, f2: 38, dur: 0.14, g: 0.28 },
+          { t: 0.24, f1: 65, f2: 32, dur: 0.16, g: 0.22 }
+        ].forEach(beat => {
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(beat.f1, now + beat.t);
+          osc.frequency.exponentialRampToValueAtTime(beat.f2, now + beat.t + beat.dur);
+
+          gain.gain.setValueAtTime(beat.g, now + beat.t);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + beat.t + beat.dur);
+
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start(now + beat.t);
+          osc.stop(now + beat.t + beat.dur + 0.02);
+        });
+      }
+
+      playCorrect() {
+        if (!this.soundEnabled) return;
+        this.init();
+        const now = this.ctx.currentTime;
+        const notes = [523.25, 659.25, 783.99, 1046.50];
+        notes.forEach((freq, i) => {
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(freq, now + i * 0.12);
+
+          gain.gain.setValueAtTime(0.2, now + i * 0.12);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.12 + 0.6);
+
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start(now + i * 0.12);
+          osc.stop(now + i * 0.12 + 0.6);
+        });
+      }
+
+      playWrong() {
+        if (!this.soundEnabled) return;
+        this.init();
+        const now = this.ctx.currentTime;
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(140, now);
+        osc.frequency.exponentialRampToValueAtTime(45, now + 0.85);
+
+        gain.gain.setValueAtTime(0.25, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.85);
+
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(now + 0.85);
+      }
+
+      playMillionFanfare() {
+        if (!this.soundEnabled) return;
+        this.init();
+        const now = this.ctx.currentTime;
+        const fanfare = [
+          { f: 523.25, d: 0.2 }, { f: 659.25, d: 0.2 }, { f: 783.99, d: 0.2 },
+          { f: 1046.50, d: 0.4 }, { f: 880.00, d: 0.2 }, { f: 1046.50, d: 0.8 }
+        ];
+        let t = now;
+        fanfare.forEach(note => {
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'square';
+          osc.frequency.setValueAtTime(note.f, t);
+          gain.gain.setValueAtTime(0.18, t);
+          gain.gain.exponentialRampToValueAtTime(0.001, t + note.d);
+
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start(t);
+          osc.stop(t + note.d);
+          t += note.d * 0.85;
+        });
+      }
+    }
+
+    /* ==========================================================================
+       LÓGICA PRINCIPAL DO QUIZ W SALES
+       ========================================================================== */
+    const audio = new AudioEngine();
+    let playerName = "Sales";
+    let activeQuestions = [];
+    let currentQuestionIndex = 0;
+    let timerSeconds = 30;
+    let timerInterval = null;
+    let skipCount = 3;
+    let helpTSEUsed = false;
+    let helpUnivUsed = false;
+    let isAnswering = false;
+    let userStats = {
+      correctCount: 0,
+      totalAnswered: 0,
+      currentPrize: "R$ 0",
+      guaranteedPrize: "R$ 0"
+    };
+
+    // ELEMENTOS DOM
+    const lobbyOverlay = document.getElementById('lobbyOverlay');
+    const txtPlayerName = document.getElementById('txtPlayerName');
+    const btnEnterStudio = document.getElementById('btnEnterStudio');
+    const lblPlayerBadge = document.getElementById('lblPlayerBadge');
+
+    const lblPrize = document.getElementById('lblPrize');
+    const lblTimer = document.getElementById('lblTimer');
+    const lblCategory = document.getElementById('lblCategory');
+    const lblQuestionText = document.getElementById('lblQuestionText');
+    const lblAnnounceBanner = document.getElementById('lblAnnounceBanner');
+    const suspenseBox = document.getElementById('suspenseBox');
+    const lblPlayerThinkingText = document.getElementById('lblPlayerThinkingText');
+    const lblSuspenseCountdown = document.getElementById('lblSuspenseCountdown');
+    const optionsGrid = document.getElementById('optionsGrid');
+    const btnSound = document.getElementById('btnSound');
+    const btnVoice = document.getElementById('btnVoice');
+    const btnRules = document.getElementById('btnRules');
+    const btnHelpTSE = document.getElementById('btnHelpTSE');
+    const btnHelpUniv = document.getElementById('btnHelpUniv');
+    const btnHelpSkip = document.getElementById('btnHelpSkip');
+    const btnHelpStop = document.getElementById('btnHelpStop');
+    const lblSkipCount = document.getElementById('lblSkipCount');
+
+    // MODAL DE FONTES
+    const sourceOverlay = document.getElementById('sourceOverlay');
+    const sourceTitle = document.getElementById('sourceTitle');
+    const sourceProposal = document.getElementById('sourceProposal');
+    const sourceDoc = document.getElementById('sourceDoc');
+    const sourcePage = document.getElementById('sourcePage');
+    const sourceQuote = document.getElementById('sourceQuote');
+    const btnNextQuestion = document.getElementById('btnNextQuestion');
+
+    // MODAL DE VITÓRIA
+    const finishOverlay = document.getElementById('finishOverlay');
+    const lblFinalPrize = document.getElementById('lblFinalPrize');
+    const lblFinalTitle = document.getElementById('lblFinalTitle');
+    const lblTotalCorrect = document.getElementById('lblTotalCorrect');
+    const lblAfinidade = document.getElementById('lblAfinidade');
+    const btnShareWA = document.getElementById('btnShareWA');
+    const btnRestart = document.getElementById('btnRestart');
+
+    // EMBARALHADOR DE PERGUNTAS (FISHER-YATES SHUFFLE)
+    function generateDynamicGameQuestions() {
+      const pool = [...MASTER_QUESTIONS_POOL];
+      for (let i = pool.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [pool[i], pool[j]] = [pool[j], pool[i]];
+      }
+      return pool.slice(0, 10);
+    }
+
+    // INICIAR PARTIDA
+    function startNewGame() {
+      playerName = txtPlayerName.value.trim() || "Sales";
+      lblPlayerBadge.innerText = `JOGADOR: ${playerName.toUpperCase()} • W SALES`;
+
+      activeQuestions = generateDynamicGameQuestions();
+      currentQuestionIndex = 0;
+      skipCount = 3;
+      helpTSEUsed = false;
+      helpUnivUsed = false;
+      isAnswering = false;
+
+      userStats.correctCount = 0;
+      userStats.totalAnswered = 0;
+      userStats.currentPrize = "R$ 0";
+      userStats.guaranteedPrize = "R$ 0";
+
+      btnHelpTSE.disabled = false;
+      btnHelpUniv.disabled = false;
+      btnHelpSkip.disabled = false;
+      lblSkipCount.innerText = `Pular (${skipCount})`;
+
+      finishOverlay.style.display = 'none';
+      sourceOverlay.style.display = 'none';
+      lobbyOverlay.style.display = 'none';
+      suspenseBox.style.display = 'none';
+
+      audio.init();
+      loadQuestion(currentQuestionIndex);
+    }
+
+    function loadQuestion(index) {
+      if (index >= activeQuestions.length) {
+        showVictoryScreen(true);
+        return;
+      }
+
+      isAnswering = false;
+      suspenseBox.style.display = 'none';
+      const q = activeQuestions[index];
+      const prizeObj = PRIZES_LADDER[index];
+      
+      lblCategory.innerText = `QUESTÃO ${index + 1} DE ${activeQuestions.length} • ${q.category.toUpperCase()}`;
+      lblQuestionText.innerText = q.question;
+      lblPrize.innerText = prizeObj.text;
+
+      // Banner renovado a cada pergunta
+      const announceText = `🎙️ VAMOS À PERGUNTA QUE VALE ${prizeObj.text} REAIS!`;
+      lblAnnounceBanner.innerText = announceText;
+
+      // Locução viva anunciando a nova pergunta e o valor
+      setTimeout(() => {
+        audio.speak(`Atenção, ${playerName}! Vamos à pergunta que vale ${prizeObj.spoken}!`, true);
+      }, 250);
+
+      // Monta as 4 opções
+      optionsGrid.innerHTML = '';
+      const letters = ['A', 'B', 'C', 'D'];
+      letters.forEach(letter => {
+        const opt = q.options[letter];
+        const btn = document.createElement('button');
+        btn.className = 'btn-option';
+        btn.dataset.letter = letter;
+        btn.innerHTML = `
+          <div class="option-letter">${letter}</div>
+          <div class="option-content">
+            <div>${opt.text}</div>
+            <span class="option-desc">${opt.desc}</span>
+          </div>
+        `;
+        btn.addEventListener('click', () => selectAnswer(letter, btn));
+        optionsGrid.appendChild(btn);
+      });
+
+      startTimer();
+      audio.playTension();
+    }
+
+    function startTimer() {
+      clearInterval(timerInterval);
+      timerSeconds = 30;
+      lblTimer.innerText = `${timerSeconds}s`;
+      lblTimer.style.color = '#e0e0e0';
+
+      timerInterval = setInterval(() => {
+        timerSeconds--;
+        lblTimer.innerText = `${timerSeconds}s`;
+
+        if (timerSeconds <= 10) {
+          lblTimer.style.color = '#ff5252';
+        }
+
+        if (timerSeconds <= 0) {
+          clearInterval(timerInterval);
+          handleTimeOut();
+        }
+      }, 1000);
+    }
+
+    function handleTimeOut() {
+      if (isAnswering) return;
+      isAnswering = true;
+      audio.playWrong();
+      audio.speak(`${playerName}, o seu tempo esgotou!`);
+      revealAnswer(null, false, "Tempo Esgotado!");
+    }
+
+    function selectAnswer(selectedLetter, clickedBtn) {
+      if (isAnswering) return;
+      isAnswering = true;
+      clearInterval(timerInterval);
+      audio.init();
+
+      // Bloqueia todos os botões e seleciona o clicado
+      const allButtons = document.querySelectorAll('.btn-option');
+      allButtons.forEach(b => b.disabled = true);
+      clickedBtn.classList.add('selected');
+
+      // Frases com pegada de auditório
+      const phrases = [
+        `Você está certo disso, ${playerName}?`,
+        `Posso perguntar? É sua resposta definitiva?`,
+        `Você está seguro da sua escolha, ${playerName}?`,
+        `Está certo disso? Vamos conferir agora!`
+      ];
+      const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+      audio.speak(randomPhrase, true);
+
+      // ATIVA O BOX DE SUSPENSE: "[NOME] ESTÁ PENSANDO..." + 5 SEGUNDOS + BATIMENTOS ECG
+      lblPlayerThinkingText.innerText = `${playerName} está pensando...`;
+      suspenseBox.style.display = 'flex';
+
+      let countdownSeconds = 5;
+      lblSuspenseCountdown.innerText = `${countdownSeconds}s`;
+
+      // Dispara a primeira batida forte
+      audio.playHeartbeat();
+
+      // Intervalo de contagem regressiva de 5 segundos com batidas do coração a cada 1s
+      const countdownInterval = setInterval(() => {
+        countdownSeconds--;
+        if (countdownSeconds >= 1) {
+          lblSuspenseCountdown.innerText = `${countdownSeconds}s`;
+          audio.playHeartbeat();
+        }
+      }, 1000);
+
+      // ⏳ APÓS EXATOS 5 SEGUNDOS DE SUSPENSE ELETRIZANTE:
+      setTimeout(() => {
+        clearInterval(countdownInterval);
+        suspenseBox.style.display = 'none';
+
+        const q = activeQuestions[currentQuestionIndex];
+        const isCorrect = (selectedLetter === q.correctOption);
+
+        clickedBtn.classList.remove('selected');
+        if (isCorrect) {
+          clickedBtn.classList.add('correct');
+          audio.playCorrect();
+          audio.speak(`Certa resposta, ${playerName}! Parabéns!`, true);
+          userStats.correctCount++;
+          userStats.currentPrize = PRIZES_LADDER[currentQuestionIndex].text;
+          if (currentQuestionIndex === 4) userStats.guaranteedPrize = "R$ 20.000";
+        } else {
+          clickedBtn.classList.add('wrong');
+          allButtons.forEach(b => {
+            if (b.dataset.letter === q.correctOption) b.classList.add('correct');
+          });
+          audio.playWrong();
+          audio.speak(`Que pena, ${playerName}! A resposta correta era a alternativa ${q.correctOption}!`, true);
+        }
+
+        // Abre o card auditado do TSE após 1.2 segundos
+        setTimeout(() => {
+          revealAnswer(selectedLetter, isCorrect);
+        }, 1200);
+
+      }, 5000); // 5 SEGUNDOS COMPLETOS!
+    }
+
+    function revealAnswer(selectedLetter, isCorrect, customTitle = null) {
+      const q = activeQuestions[currentQuestionIndex];
+
+      if (customTitle) {
+        sourceTitle.className = 'source-title erro';
+        sourceTitle.innerText = customTitle;
+      } else if (isCorrect) {
+        sourceTitle.className = 'source-title acerto';
+        sourceTitle.innerText = `CERTA RESPOSTA! (Alternativa ${q.correctOption})`;
+      } else {
+        sourceTitle.className = 'source-title erro';
+        sourceTitle.innerText = `RESPOSTA INCORRETA! (Correta: Alternativa ${q.correctOption})`;
+      }
+
+      sourceProposal.innerText = q.source.proposal;
+      sourceDoc.innerText = q.source.doc;
+      sourcePage.innerText = q.source.page;
+      sourceQuote.innerText = q.source.quote;
+
+      if (!isCorrect && !customTitle) {
+        btnNextQuestion.innerText = "Ver Resultado Final do W Sales 🏁";
+        btnNextQuestion.onclick = () => {
+          sourceOverlay.style.display = 'none';
+          showVictoryScreen(false);
+        };
+      } else {
+        const isLast = (currentQuestionIndex + 1 === activeQuestions.length);
+        btnNextQuestion.innerText = isLast ? "Ver Grande Prêmio de R$ 1 Milhão! 🏆" : "Próxima Pergunta ➡️";
+        btnNextQuestion.onclick = () => {
+          sourceOverlay.style.display = 'none';
+          currentQuestionIndex++;
+          loadQuestion(currentQuestionIndex);
+        };
+      }
+
+      sourceOverlay.style.display = 'flex';
+    }
+
+    function showVictoryScreen(wonMax) {
+      clearInterval(timerInterval);
+      const total = activeQuestions.length;
+      lblTotalCorrect.innerText = `${userStats.correctCount}/${total}`;
+
+      if (userStats.correctCount >= 8) {
+        lblAfinidade.innerText = "Especialista em Política 🥇";
+      } else if (userStats.correctCount >= 5) {
+        lblAfinidade.innerText = "Eleitor Atento 🥈";
+      } else {
+        lblAfinidade.innerText = "Precisa Ler o TSE 📚";
+      }
+
+      const civicOutro = "Mais importante do que jogar e faturar um milhão de reais, é fazer uma boa escolha no segundo turno: o nosso futuro depende do seu voto consciente! Um abraço do seu amigo W Sales!";
+
+      if (wonMax || userStats.correctCount === total) {
+        audio.playMillionFanfare();
+        audio.speak(`Sensacional, ${playerName}! Você acaba de faturar um milhão de reais no quiz do seu amigo W Sales! ${civicOutro}`, true);
+        lblFinalPrize.innerText = "R$ 1.000.000";
+        lblFinalTitle.innerText = `${playerName.toUpperCase()} É O NOVO MILIONÁRIO DO W SALES!`;
+      } else {
+        const prizeWon = userStats.currentPrize !== "R$ 0" ? userStats.currentPrize : (userStats.guaranteedPrize || "R$ 0");
+        lblFinalPrize.innerText = prizeWon;
+        lblFinalTitle.innerText = `${playerName.toUpperCase()} FATUROU ${prizeWon}!`;
+        audio.speak(`Muito bem, ${playerName}! Você encerrou a rodada faturando ${prizeWon}! ${civicOutro}`, true);
+      }
+
+      finishOverlay.style.display = 'flex';
+    }
+
+    // AJUDAS: CARTAS TSE (ELIMINA 2)
+    btnHelpTSE.addEventListener('click', () => {
+      if (helpTSEUsed || isAnswering) return;
+      helpTSEUsed = true;
+      btnHelpTSE.disabled = true;
+
+      const q = activeQuestions[currentQuestionIndex];
+      const wrongOptions = ['A', 'B', 'C', 'D'].filter(l => l !== q.correctOption);
+      const toEliminate = wrongOptions.sort(() => 0.5 - Math.random()).slice(0, 2);
+
+      const allButtons = document.querySelectorAll('.btn-option');
+      allButtons.forEach(btn => {
+        if (toEliminate.includes(btn.dataset.letter)) {
+          btn.classList.add('eliminated');
+          btn.disabled = true;
+        }
+      });
+      audio.playTension();
+      audio.speak("O W Sales consultou o TSE e eliminou duas opções erradas para você!", true);
+    });
+
+    // AJUDAS: ELEITORES
+    btnHelpUniv.addEventListener('click', () => {
+      if (helpUnivUsed || isAnswering) return;
+      helpUnivUsed = true;
+      btnHelpUniv.disabled = true;
+
+      const q = activeQuestions[currentQuestionIndex];
+      alert(`📊 PESQUISA DE OPINIÃO DOS ELEITORES:\n\n• Opção A: 26%\n• Opção B: 40%\n• Opção C: 20%\n• Opção D: 14%\n\n(A maioria dos consultados pelo W Sales apontou a Alternativa ${q.correctOption} como a proposta oficial!)`);
+      audio.speak("A bancada dos eleitores deu a sua opinião!", true);
+    });
+
+    // AJUDAS: PULAR PERGUNTA
+    btnHelpSkip.addEventListener('click', () => {
+      if (skipCount <= 0 || isAnswering) return;
+      skipCount--;
+      lblSkipCount.innerText = `Pular (${skipCount})`;
+      if (skipCount === 0) btnHelpSkip.disabled = true;
+
+      clearInterval(timerInterval);
+      audio.speak("Você pulou a pergunta!", true);
+      currentQuestionIndex++;
+      loadQuestion(currentQuestionIndex);
+    });
+
+    // AJUDAS: PARAR
+    btnHelpStop.addEventListener('click', () => {
+      if (isAnswering) return;
+      if (confirm(`${playerName}, deseja parar agora e levar seu prêmio de ${userStats.currentPrize || 'R$ 0'} garantido pelo W Sales?`)) {
+        clearInterval(timerInterval);
+        showVictoryScreen(false);
+      }
+    });
+
+    // COMPARTILHAR NO WHATSAPP COM A MENSAGEM CIDADÃ DA OPÇÃO 2
+    btnShareWA.addEventListener('click', () => {
+      const prize = lblFinalPrize.innerText;
+      const text = `🗳️ *QUIZ DA ELEIÇÃO DO SEU AMIGO W SALES: LULA (13) vs FLÁVIO (22)*\n\nEu (${playerName}) acabei de jogar e faturei *${prize}* acertando ${userStats.correctCount}/10 propostas oficiais dos planos de governo registrados no TSE!\n\n💬 *"Mais importante do que jogar e faturar R$ 1 Milhão, é fazer uma boa escolha no segundo turno: o nosso futuro depende do seu voto consciente! — Um abraço do seu amigo W Sales 🇧🇷"*\n\nTeste seu conhecimento antes de votar no dia 25:\n👉 https://nativo360ads.github.io/show-do-milhao-eleicoes/`;
+      const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+      window.open(url, '_blank');
+    });
+
+    // REINICIAR (NOVO JOGO COM PERGUNTAS INÉDITAS)
+    btnRestart.addEventListener('click', () => {
+      startNewGame();
+    });
+
+    // ENTRAR NO AUDITÓRIO
+    btnEnterStudio.addEventListener('click', startNewGame);
+
+    // TOGGLES
+    btnSound.addEventListener('click', () => {
+      audio.soundEnabled = !audio.soundEnabled;
+      btnSound.innerText = audio.soundEnabled ? '🔊' : '🔇';
+    });
+
+    btnVoice.addEventListener('click', () => {
+      audio.voiceEnabled = !audio.voiceEnabled;
+      btnVoice.innerText = audio.voiceEnabled ? '🎙️' : '🤐';
+      if (!audio.voiceEnabled && window.speechSynthesis) window.speechSynthesis.cancel();
+    });
+
+    btnRules.addEventListener('click', () => {
+      alert("⚖️ COMPROMISSO OFICIAL DO W SALES:\n\n1. Todas as perguntas são extraídas exclusivamente dos Planos de Governo Oficiais de Lula e Flávio protocolados no TSE (DivulgaCandContas 2026).\n2. Não há qualquer viés, boato ou especulação partidária.\n3. Cada resposta revela o trecho exato, capítulo e página do documento público.");
+    });
+  </script>
+</body>
+</html>
