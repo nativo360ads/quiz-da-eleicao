@@ -1646,8 +1646,26 @@
           const voices = window.speechSynthesis.getVoices();
           if (!voices || !voices.length) return;
 
-          const isPt = v => v.lang === 'pt-BR' || v.lang === 'pt_BR' || (v.lang && v.lang.startsWith('pt'));
-          const ptVoices = voices.filter(isPt);
+          // TRAVA ESTRITA: APENAS PORTUGUÊS DO BRASIL (pt-BR)!
+          // Bloqueia com rigor qualquer voz de Portugal (pt-PT / Portugal / Lusitana)
+          const isPtBR = v => {
+            const lang = (v.lang || '').toLowerCase().replace('_', '-');
+            const name = (v.name || '').toLowerCase();
+            const uri = (v.voiceURI || '').toLowerCase();
+            if (lang.includes('pt-pt') || name.includes('portugal') || uri.includes('portugal') || name.includes('pt-pt') || uri.includes('pt-pt')) {
+              return false;
+            }
+            return lang === 'pt-br' || lang.startsWith('pt-br') || name.includes('brazil') || name.includes('brasil');
+          };
+
+          let ptVoices = voices.filter(isPtBR);
+          if (!ptVoices.length) {
+            ptVoices = voices.filter(v => {
+              const lang = (v.lang || '').toLowerCase().replace('_', '-');
+              const name = (v.name || '').toLowerCase();
+              return lang.startsWith('pt') && !lang.includes('pt-pt') && !name.includes('portugal');
+            });
+          }
           if (!ptVoices.length) return;
 
           const isFemale = v => {
@@ -1660,33 +1678,32 @@
                    n.includes('mulher') || n.includes('zira') || n.includes('#female') ||
                    n.includes('-female');
           };
-          const isMale = v => {
+
+          const isMaleBR = v => {
             const n = ((v.name || '') + ' ' + (v.voiceURI || '')).toLowerCase();
-            return n.includes('antonio') || n.includes('antônio') || n.includes('fabio') || 
-                   n.includes('fábio') || n.includes('daniel') || n.includes('felipe') || 
+            return n.includes('felipe') || n.includes('antonio') || n.includes('antônio') || 
+                   n.includes('fabio') || n.includes('fábio') || n.includes('daniel') || 
                    n.includes('julio') || n.includes('júlio') || n.includes('lucio') || 
                    n.includes('lúcio') || n.includes('thiago') || n.includes('tiago') || 
-                   n.includes('ricardo') || n.includes('marcos') || n.includes('duarte') || 
-                   n.includes('joaquim') || n.includes('male') || n.includes('homem') || 
-                   n.includes('guy') || n.includes('man') || n.includes('pt-br-x-afs#male') ||
-                   n.includes('pt-br-x-afd') || n.includes('pt-br-x-afc') || n.includes('voice 2') ||
-                   n.includes('voz 2') || n.includes('voice 4') || n.includes('voz 4');
+                   n.includes('ricardo') || n.includes('marcos') || n.includes('male') || 
+                   n.includes('homem') || n.includes('guy') || n.includes('man') || 
+                   n.includes('pt-br-x-afs#male') || n.includes('pt-br-x-afd') || 
+                   n.includes('pt-br-x-afc') || n.includes('voice 2') || n.includes('voz 2') || 
+                   n.includes('voice 4') || n.includes('voz 4');
           };
 
-          // 1. Prioridade absoluta: Voz em Português explicitamente Masculina por nome ou tag
-          let chosen = ptVoices.find(isMale);
+          // 1. Prioridade absoluta: Voz Brasileira explicitamente Masculina
+          let chosen = ptVoices.find(isMaleBR);
 
-          // 2. Se não achou por nome e tiver mais de 1 voz no celular (ex: Android tem Voz 1 feminina e Voz 2 masculina)
+          // 2. Se não achou por nome e tiver mais de 1 voz brasileira no celular (Android: Voz 2 é masculina)
           if (!chosen && ptVoices.length > 1) {
-            // Tenta pegar uma voz que NÃO seja feminina
             chosen = ptVoices.find(v => !isFemale(v));
-            // Se todas tiverem nome genérico ("Google português do Brasil"), a segunda (índice 1) é masculina no Android!
             if (!chosen || isFemale(chosen)) {
               chosen = ptVoices[1];
             }
           }
 
-          // 3. Fallback
+          // 3. Fallback: Qualquer voz brasileira (se só houver 1, modula via pitch)
           if (!chosen) {
             chosen = ptVoices.find(v => !isFemale(v)) || ptVoices[0];
           }
@@ -1714,10 +1731,10 @@
         }
         const utterance = new SpeechSynthesisUtterance(text);
         if (this.bestVoice) utterance.voice = this.bestVoice;
+        // TRAVA SUPREMA: Sotaque 100% Brasileiro
         utterance.lang = 'pt-BR';
-        utterance.rate = 1.05; // Ritmo firme e dinâmico de apresentador de TV
-        // Tom masculino encorpado: pitch 0.80 abaixa a frequência para um timbre de barítono masculino (estilo W Sales)
-        utterance.pitch = 0.80;
+        utterance.rate = 1.05; // Ritmo firme e dinâmico de apresentador W Sales
+        utterance.pitch = 0.82; // Tom encorpado masculino de barítono
         utterance.volume = 1.0;
         window.speechSynthesis.speak(utterance);
       }
