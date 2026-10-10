@@ -1223,394 +1223,1867 @@
        Cada partida sorteia 10 perguntas aleatórias do banco!
        ========================================================================== */
     const MASTER_QUESTIONS_POOL = [
-      // --- BLOCO 1: FLÁVIO BOLSONARO (PL) ---
-      {
-        id: "FLA_01",
-        category: "Segurança Pública & Maioridade Penal",
-        question: "Qual candidato registrou no TSE a proposta de reduzir a maioridade penal de 18 para 16 anos (e 14 anos para crimes hediondos) no eixo 'Brasil Sem Medo'?",
-        correctOption: "B",
-        options: {
-          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Coligação Brasil da Esperança" },
-          B: { text: "Flávio Bolsonaro (PL)", desc: "Coligação Para o Brasil Vencer o Atraso" },
-          C: { text: "Ambos defendem essa medida", desc: "Acordo de consenso bipartidário" },
-          D: { text: "Nenhum dos dois (Fake News)", desc: "Boato sem registro eleitoral" }
-        },
-        source: {
-          candidate: "Flávio Bolsonaro (PL)",
-          proposal: "Redução da maioridade penal para 16 anos gerais e 14 anos em crimes hediondos.",
-          doc: "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
-          page: "Eixo Segurança Pública ('Brasil Sem Medo'), Pág. 24.",
-          quote: "«Endurecimento da legislação penal com a diminuição da maioridade penal para 16 anos, e 14 anos nos crimes hediondos, acabando com a sensação de impunidade.»"
-        }
+  {
+    "id": "FLA_01",
+    "category": "Segurança Pública & Maioridade Penal",
+    "question": "Qual candidato registrou no TSE a proposta de reduzir a maioridade penal de 18 para 16 anos (e 14 anos para crimes hediondos) no eixo 'Brasil Sem Medo'?",
+    "correctOption": "B",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
       },
-      {
-        id: "FLA_02",
-        category: "Reforma Administrativa & Estado Enxuto",
-        question: "Qual candidato estabeleceu como meta oficial cortar no mínimo 10 ministérios e reativar o Programa Nacional de Desestatização (privatizações)?",
-        correctOption: "B",
-        options: {
-          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Coligação Brasil da Esperança" },
-          B: { text: "Flávio Bolsonaro (PL)", desc: "Coligação Para o Brasil Vencer o Atraso" },
-          C: { text: "Ambos defendem essa medida", desc: "Plano de choque de gestão" },
-          D: { text: "Nenhum dos dois (Fake News)", desc: "Informação inverídica" }
-        },
-        source: {
-          candidate: "Flávio Bolsonaro (PL)",
-          proposal: "Redução de ministérios, corte de cargos comissionados e privatização de estatais não estratégicas.",
-          doc: "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
-          page: "Eixo Reforma Administrativa e Estado Enxuto, Págs. 35 e 38.",
-          quote: "«Redução de ao menos 10 pastas ministeriais, corte drástico de cargos comissionados e retomada vigorosa do Programa Nacional de Desestatização.»"
-        }
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
       },
-      {
-        id: "FLA_03",
-        category: "Combate ao Narcotráfico & Milícias",
-        question: "Qual candidato registrou a proposta de enquadrar facções criminosas como PCC e Comando Vermelho como 'organizações narcoterroristas'?",
-        correctOption: "B",
-        options: {
-          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Coligação Brasil da Esperança" },
-          B: { text: "Flávio Bolsonaro (PL)", desc: "Coligação Para o Brasil Vencer o Atraso" },
-          C: { text: "Ambos registram esse enquadramento", desc: "Proposta compartilhada" },
-          D: { text: "Nenhum dos dois (Fake News)", desc: "Boato sem respaldo no TSE" }
-        },
-        source: {
-          candidate: "Flávio Bolsonaro (PL)",
-          proposal: "Classificação legal de facções armadas e milícias como organizações narcoterroristas.",
-          doc: "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
-          page: "Eixo Segurança Pública ('Brasil Sem Medo'), Pág. 21.",
-          quote: "«Classificação legal de facções criminosas como PCC, Comando Vermelho e milícias como organizações narcoterroristas, autorizando o emprego pleno da força do Estado.»"
-        }
+      "C": {
+        "text": "Ambos defendem essa medida",
+        "desc": "Acordo de consenso bipartidário"
       },
-      {
-        id: "FLA_04",
-        category: "Reforma Política & Mandato Presidencial",
-        question: "Qual candidato defende a aprovação de uma PEC para acabar com a reeleição para presidente da República, fixando mandato único?",
-        correctOption: "B",
-        options: {
-          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Coligação Brasil da Esperança" },
-          B: { text: "Flávio Bolsonaro (PL)", desc: "Coligação Para o Brasil Vencer o Atraso" },
-          C: { text: "Ambos defendem mandato único", desc: "Pacto de alternância de poder" },
-          D: { text: "Nenhum dos dois (Fake News)", desc: "Tema ausente nos debates" }
-        },
-        source: {
-          candidate: "Flávio Bolsonaro (PL)",
-          proposal: "Extinção da reeleição no Executivo e cumprimento de mandato único de 5 anos.",
-          doc: "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
-          page: "Eixo Reformas Institucionais e Fortalecimento Democrático, Pág. 12.",
-          quote: "«Defesa intransigente do fim da reeleição para presidente da República, garantindo foco total na administração pública sem contaminação por campanhas eleitorais contínuas.»"
-        }
-      },
-      {
-        id: "FLA_05",
-        category: "Forças Armadas & Blindagem de Fronteiras",
-        question: "Qual candidato registrou no plano de governo a criação de uma 'tropa de elite' das Forças Armadas para patrulhamento armado permanente das fronteiras terrestres?",
-        correctOption: "B",
-        options: {
-          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Coligação Brasil da Esperança" },
-          B: { text: "Flávio Bolsonaro (PL)", desc: "Coligação Para o Brasil Vencer o Atraso" },
-          C: { text: "Ambos defendem essa tropa", desc: "Proposta militar conjunta" },
-          D: { text: "Nenhum dos dois (Fake News)", desc: "Boato de internet" }
-        },
-        source: {
-          candidate: "Flávio Bolsonaro (PL)",
-          proposal: "Criação de tropa de elite militar dedicada a operações especiais nas fronteiras do Brasil.",
-          doc: "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
-          page: "Eixo Segurança Pública ('Brasil Sem Medo'), Pág. 26.",
-          quote: "«Criação de uma força de elite especializada e permanente das Forças Armadas para fechamento e interceptação armada de rotas de tráfico nas fronteiras terrestres.»"
-        }
-      },
-      {
-        id: "FLA_06",
-        category: "Tributação & Desoneração",
-        question: "Qual candidato defende a revisão da reforma tributária para reduzir a alíquota do IVA e desonerar a folha de salários na contratação de jovens de 18 a 24 anos?",
-        correctOption: "B",
-        options: {
-          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Coligação Brasil da Esperança" },
-          B: { text: "Flávio Bolsonaro (PL)", desc: "Coligação Para o Brasil Vencer o Atraso" },
-          C: { text: "Ambos defendem essa medida", desc: "Incentivo jovem compartilhado" },
-          D: { text: "Nenhum dos dois (Fake News)", desc: "Inexistente nos planos" }
-        },
-        source: {
-          candidate: "Flávio Bolsonaro (PL)",
-          proposal: "Redução da alíquota do IVA e desoneração da folha de pagamento para o primeiro emprego jovem.",
-          doc: "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
-          page: "Eixo Economia, Mercado e Competitividade, Pág. 44.",
-          quote: "«Revisão dos parâmetros tributários com teto menor para o IVA e redução drástica de encargos trabalhistas sobre jovens de 18 a 24 anos.»"
-        }
-      },
-
-      // --- BLOCO 2: LULA (PT) ---
-      {
-        id: "LUL_01",
-        category: "Jornada de Trabalho & Escala 6x1",
-        question: "Qual candidato registrou expressamente a proposta de redução da jornada máxima de trabalho para 40 horas semanais (fim da escala 6x1), sem redução de salários?",
-        correctOption: "A",
-        options: {
-          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Coligação Brasil da Esperança" },
-          B: { text: "Flávio Bolsonaro (PL)", desc: "Coligação Para o Brasil Vencer o Atraso" },
-          C: { text: "Ambos defendem essa medida", desc: "Proposta conjunta de governo" },
-          D: { text: "Nenhum dos dois (Fake News)", desc: "Boato espalhado em correntes" }
-        },
-        source: {
-          candidate: "Luiz Inácio Lula da Silva (PT)",
-          proposal: "Redução da jornada máxima de trabalho para 40 horas semanais sem corte salarial.",
-          doc: "Diretrizes para o Programa de Transformação do Brasil (TSE 2026)",
-          page: "Diretriz 8: Valorização do Trabalho e Emprego Digno, Pág. 47.",
-          quote: "«Apoio à redução da jornada máxima de trabalho para 40 horas semanais, superando o modelo 6x1 sem redução salarial, garantindo qualidade de vida e convívio familiar ao trabalhador.»"
-        }
-      },
-      {
-        id: "LUL_02",
-        category: "Segurança Pública Federativa",
-        question: "Qual candidato registrou no TSE a proposta de criar um Ministério da Segurança Pública exclusivo e autônomo, desvinculado do Ministério da Justiça?",
-        correctOption: "A",
-        options: {
-          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Coligação Brasil da Esperança" },
-          B: { text: "Flávio Bolsonaro (PL)", desc: "Coligação Para o Brasil Vencer o Atraso" },
-          C: { text: "Ambos propõem essa criação", desc: "Consenso entre os dois planos" },
-          D: { text: "Nenhum dos dois (Fake News)", desc: "Falso" }
-        },
-        source: {
-          candidate: "Luiz Inácio Lula da Silva (PT)",
-          proposal: "Criação de ministério autônomo específico para a Segurança Pública e o SUSP.",
-          doc: "Diretrizes para o Programa de Transformação do Brasil (TSE 2026)",
-          page: "Diretriz 4: Segurança Pública Cidadã e Inteligência, Pág. 28.",
-          quote: "«Criação do Ministério da Segurança Pública com coordenação nacional federativa, integrando as polícias e fortalecendo o Sistema Único de Segurança Pública (SUSP).»"
-        }
-      },
-      {
-        id: "LUL_03",
-        category: "Trabalhadores por Aplicativo",
-        question: "Qual candidato prevê regras de proteção previdenciária, piso remuneratório e transparência algorítmica para motoristas e entregadores de plataformas?",
-        correctOption: "A",
-        options: {
-          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Coligação Brasil da Esperança" },
-          B: { text: "Flávio Bolsonaro (PL)", desc: "Coligação Para o Brasil Vencer o Atraso" },
-          C: { text: "Ambos os candidatos defendem", desc: "Proposta idêntica registrada" },
-          D: { text: "Nenhum dos dois (Fake News)", desc: "Inexistente nos planos" }
-        },
-        source: {
-          candidate: "Luiz Inácio Lula da Silva (PT)",
-          proposal: "Marco legal de proteção social e transparência para trabalhadores de aplicativos.",
-          doc: "Diretrizes para o Programa de Transformação do Brasil (TSE 2026)",
-          page: "Diretriz 8: Valorização do Trabalho e Plataformas Digitais, Pág. 49.",
-          quote: "«Estabelecimento de marco regulatório protetivo com cobertura previdenciária, piso remuneratório e abertura das regras de algoritmos para entregadores e motoristas de app.»"
-        }
-      },
-      {
-        id: "LUL_04",
-        category: "Saúde & Envelhecimento Ativo",
-        question: "Qual candidato registrou no TSE o programa 'PADI Brasil' com ampliação do atendimento médico e internação domiciliar gratuita para idosos pelo SUS?",
-        correctOption: "A",
-        options: {
-          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Coligação Brasil da Esperança" },
-          B: { text: "Flávio Bolsonaro (PL)", desc: "Coligação Para o Brasil Vencer o Atraso" },
-          C: { text: "Ambos propõem o PADI Brasil", desc: "Programa de saúde conjunto" },
-          D: { text: "Nenhum dos dois (Fake News)", desc: "Programa fictício" }
-        },
-        source: {
-          candidate: "Luiz Inácio Lula da Silva (PT)",
-          proposal: "Criação do PADI Brasil para atendimento e internação domiciliar de idosos no SUS.",
-          doc: "Diretrizes para o Programa de Transformação do Brasil (TSE 2026)",
-          page: "Diretriz 6: Saúde e Cuidado Integral da População Idosa, Pág. 39.",
-          quote: "«Implementação do programa PADI Brasil para expansão do atendimento médico e multidisciplinar domiciliar para pessoas idosas, integrando saúde e assistência social no SUS.»"
-        }
-      },
-      {
-        id: "LUL_05",
-        category: "Educação Básica & Tempo Integral",
-        question: "Qual candidato colocou como meta prioritária a universalização das creches públicas e a expansão da escola em tempo integral em regime de colaboração com os estados?",
-        correctOption: "A",
-        options: {
-          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Coligação Brasil da Esperança" },
-          B: { text: "Flávio Bolsonaro (PL)", desc: "Coligação Para o Brasil Vencer o Atraso" },
-          C: { text: "Ambos colocam como prioridade", desc: "Convergência em creches públicas" },
-          D: { text: "Nenhum dos dois (Fake News)", desc: "Tema ausente" }
-        },
-        source: {
-          candidate: "Luiz Inácio Lula da Silva (PT)",
-          proposal: "Universalização de creches e expansão massiva da educação integral básica.",
-          doc: "Diretrizes para o Programa de Transformação do Brasil (TSE 2026)",
-          page: "Diretriz 5: Educação Emancipadora e Escola em Tempo Integral, Pág. 34.",
-          quote: "«Ampliação acelerada de matrículas em creches e expansão do ensino em tempo integral na rede pública, integrando esportes, cultura e formação tecnológica.»"
-        }
-      },
-      {
-        id: "LUL_06",
-        category: "Transição Ecológica & Neoindustrialização",
-        question: "Qual candidato propõe aliar o Plano de Transição Ecológica e bioeconomia aos investimentos públicos do Novo PAC para descarbonização da indústria nacional?",
-        correctOption: "A",
-        options: {
-          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Coligação Brasil da Esperança" },
-          B: { text: "Flávio Bolsonaro (PL)", desc: "Coligação Para o Brasil Vencer o Atraso" },
-          C: { text: "Ambos defendem essa diretriz", desc: "Proposta ambiental compartilhada" },
-          D: { text: "Nenhum dos dois (Fake News)", desc: "Inexistente" }
-        },
-        source: {
-          candidate: "Luiz Inácio Lula da Silva (PT)",
-          proposal: "Neoindustrialização verde com investimentos estatais em hidrogênio sustentável e bioeconomia.",
-          doc: "Diretrizes para o Programa de Transformação do Brasil (TSE 2026)",
-          page: "Diretriz 9: Reindustrialização, Inovação e Transição Ecológica, Pág. 55.",
-          quote: "«Retomada do protagonismo industrial brasileiro baseado em transição energética justa, descarbonização, investimentos do Novo PAC e liderança global em bioeconomia.»"
-        }
-      },
-
-      // --- BLOCO 3: AMBOS DEFENDEM (CONSENSO OFICIAL) ---
-      {
-        id: "AMB_01",
-        category: "Transferência de Renda & Assistência Social",
-        question: "Qual dos candidatos garante expressamente em seu plano oficial a manutenção dos programas federais de transferência de renda (como o Bolsa Família) para famílias vulneráveis?",
-        correctOption: "C",
-        options: {
-          A: { text: "Apenas Lula (PT)", desc: "Manutenção exclusiva da esquerda" },
-          B: { text: "Apenas Flávio Bolsonaro (PL)", desc: "Reformulação liberal exclusiva" },
-          C: { text: "Ambos garantem a manutenção", desc: "Presente nos dois planos oficiais" },
-          D: { text: "Nenhum dos dois (Extinção total)", desc: "Boato desmentido pelo TSE" }
-        },
-        source: {
-          candidate: "Ambos os Candidatos (Consenso Oficial)",
-          proposal: "Preservação e garantia da transferência de renda às famílias de baixa renda.",
-          doc: "Planos Oficiais de Lula (Pág. 16) e Flávio Bolsonaro (Pág. 52) no TSE",
-          page: "Lula (Diretriz 2) e Flávio (Eixo Social e Dignidade da Família)",
-          quote: "«Tanto Lula quanto Flávio Bolsonaro registraram formalmente no TSE o compromisso inegociável de manter e financiar os programas de transferência de renda para a população vulnerável.»"
-        }
-      },
-      {
-        id: "AMB_02",
-        category: "Educação ProfissIONAL & Ensino Técnico",
-        question: "Qual dos candidatos defende em seu plano de governo a expansão das vagas em cursos técnicos e profissionalizantes integrados ao ensino médio para a juventude?",
-        correctOption: "C",
-        options: {
-          A: { text: "Apenas Lula (PT)", desc: "Expansão exclusiva dos IFs" },
-          B: { text: "Apenas Flávio Bolsonaro (PL)", desc: "Incentivo privado exclusivo" },
-          C: { text: "Ambos os candidatos defendem", desc: "Meta presente em ambos os planos" },
-          D: { text: "Nenhum dos dois (Fake News)", desc: "Tema ausente" }
-        },
-        source: {
-          candidate: "Ambos os Candidatos (Consenso Oficial)",
-          proposal: "Ampliação de cursos técnicos para facilitar o ingresso imediato dos jovens no mercado.",
-          doc: "Planos Oficiais de Lula (Pág. 35) e Flávio Bolsonaro (Pág. 48) no TSE",
-          page: "Lula (Diretriz 5) e Flávio (Eixo 'Brasil que Prepara')",
-          quote: "«A ampliação de vagas no ensino técnico e profissionalizante para jovens do ensino médio é um ponto de convergência explícito nos dois programas de governo registrados.»"
-        }
-      },
-      {
-        id: "AMB_03",
-        category: "Saúde & Farmácia Popular",
-        question: "Qual dos candidatos registrou no plano de governo o compromisso formal de manter e expandir o fornecimento de medicamentos essenciais pelo programa Farmácia Popular?",
-        correctOption: "C",
-        options: {
-          A: { text: "Apenas Lula (PT)", desc: "Criação histórica" },
-          B: { text: "Apenas Flávio Bolsonaro (PL)", desc: "Proposta liberal" },
-          C: { text: "Ambos assumem esse compromisso", desc: "Garantido nos dois programas" },
-          D: { text: "Nenhum dos dois (Extinção)", desc: "Boato falso de redes sociais" }
-        },
-        source: {
-          candidate: "Ambos os Candidatos (Consenso Oficial)",
-          proposal: "Manutenção e gratuidade de remédios para diabetes, hipertensão e asma.",
-          doc: "Planos Oficiais no TSE (Saúde Pública)",
-          page: "Lula (Pág. 38) e Flávio Bolsonaro (Pág. 50)",
-          quote: "«Ambos os candidatos negaram qualquer redução no Farmácia Popular e registraram compromisso de manter o acesso a medicamentos gratuitos na rede conveniada.»"
-        }
-      },
-      {
-        id: "AMB_04",
-        category: "Agronegócio & Crédito Rural",
-        question: "Qual dos candidatos prevê em seu documento oficial a ampliação do crédito rural e apoio à infraestrutura e escoamento da safra do agronegócio?",
-        correctOption: "C",
-        options: {
-          A: { text: "Apenas Flávio Bolsonaro (PL)", desc: "Apoio exclusivo ao agro" },
-          B: { text: "Apenas Lula (PT)", desc: "Plano Safra exclusivo" },
-          C: { text: "Ambos os candidatos garantem", desc: "Presente nos dois programas" },
-          D: { text: "Nenhum dos dois (Fake News)", desc: "Inexistente" }
-        },
-        source: {
-          candidate: "Ambos os Candidatos (Consenso Oficial)",
-          proposal: "Financiamento e suporte logístico ao agronegócio e à produção de alimentos.",
-          doc: "Planos Oficiais no TSE (Agricultura e Abastecimento)",
-          page: "Lula (Pág. 58) e Flávio Bolsonaro (Pág. 46)",
-          quote: "«O fortalecimento do crédito agrícola e investimentos em logística de escoamento para o agronegócio constam formalmente nos planos de ambos os concorrentes ao Planalto.»"
-        }
-      },
-
-      // --- BLOCO 4: FAKE NEWS & BOATOS AUDITADOS PELO TSE ---
-      {
-        id: "FAK_01",
-        category: "Mitos & Boatos Eleitorais (Auditoria TSE)",
-        question: "Qual candidato registrou no plano de governo a proposta de fechar igrejas, templos religiosos ou restringir a liberdade de culto no Brasil?",
-        correctOption: "D",
-        options: {
-          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Acusação comum em correntes" },
-          B: { text: "Flávio Bolsonaro (PL)", desc: "Acusação de opositores" },
-          C: { text: "Ambos propõem essa intervenção", desc: "Acordo de secularização" },
-          D: { text: "Nenhum dos dois (É FAKE NEWS!)", desc: "Boato desmentido oficialmente" }
-        },
-        source: {
-          candidate: "NENHUM DOS DOIS (FAKE NEWS DESMENTIDA PELO TSE)",
-          proposal: "Ambos os planos garantem proteção total e imunidade à liberdade religiosa.",
-          doc: "Painel Oficial de Checagem do TSE ('Fato ou Boato')",
-          page: "Artigo 5º da CF e Planos de Governo Oficiais",
-          quote: "«É FALSO que qualquer um dos candidatos pretenda fechar igrejas ou limitar cultos. Ambos garantem a inviolabilidade da fé, a imunidade tributária dos templos e a liberdade religiosa.»"
-        }
-      },
-      {
-        id: "FAK_02",
-        category: "Mitos & Boatos Eleitorais (Auditoria TSE)",
-        question: "Qual candidato registrou no plano de governo a proposta de confiscar a caderneta de poupança ou investimentos privados dos cidadãos?",
-        correctOption: "D",
-        options: {
-          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Boato de WhatsApp" },
-          B: { text: "Flávio Bolsonaro (PL)", desc: "Boato de redes sociais" },
-          C: { text: "Ambos propõem o confisco", desc: "Inverdade política" },
-          D: { text: "Nenhum dos dois (É FAKE NEWS!)", desc: "Garantia constitucional assegurada" }
-        },
-        source: {
-          candidate: "NENHUM DOS DOIS (FAKE NEWS DESMENTIDA PELO TSE)",
-          proposal: "Inexistente. O confisco de poupança é vedado pela Emenda Constitucional 32.",
-          doc: "Painel Oficial de Checagem do TSE",
-          page: "Constituição Federal e Planos Registrados",
-          quote: "«Nenhum plano prevê qualquer bloqueio ou intervenção sobre a poupança. A proteção ao patrimônio privado é assegurada pela Constituição e garantida por ambos.»"
-        }
-      },
-      {
-        id: "FAK_03",
-        category: "Mitos & Boatos Eleitorais (Auditoria TSE)",
-        question: "Qual candidato registrou no plano de governo a proposta de extinguir o 13º salário ou as férias remuneradas dos trabalhadores com carteira assinada?",
-        correctOption: "D",
-        options: {
-          A: { text: "Flávio Bolsonaro (PL)", desc: "Boato espalhado em grupos" },
-          B: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Acusação eleitoral" },
-          C: { text: "Ambos propõem a extinção", desc: "Falso" },
-          D: { text: "Nenhum dos dois (É FAKE NEWS!)", desc: "Cláusula pétrea constitucional" }
-        },
-        source: {
-          candidate: "NENHUM DOS DOIS (FAKE NEWS DESMENTIDA PELO TSE)",
-          proposal: "Direitos trabalhistas garantidos pelo Art. 7º da Constituição Federal.",
-          doc: "Painel Oficial de Checagem do TSE",
-          page: "Artigo 7º da CF e Planos Registrados",
-          quote: "«O 13º salário e as férias remuneradas são direitos pétreos na CLT e na Constituição. Nenhum dos candidatos propõe sua revogação nos planos oficiais.»"
-        }
-      },
-      {
-        id: "FAK_04",
-        category: "Mitos & Boatos Eleitorais (Auditoria TSE)",
-        question: "Qual candidato registrou no plano de governo a proposta de legalizar irrestritamente a venda de todas as drogas no comércio varejista do Brasil?",
-        correctOption: "D",
-        options: {
-          A: { text: "Luiz Inácio Lula da Silva (PT)", desc: "Boato eleitoral clássico" },
-          B: { text: "Flávio Bolsonaro (PL)", desc: "Inverdade de internet" },
-          C: { text: "Ambos propõem a legalização", desc: "Totalmente incorreto" },
-          D: { text: "Nenhum dos dois (É FAKE NEWS!)", desc: "Proposta inexistente nos documentos" }
-        },
-        source: {
-          candidate: "NENHUM DOS DOIS (FAKE NEWS DESMENTIDA PELO TSE)",
-          proposal: "Nenhum plano protocolado defende a liberação de comércio de drogas.",
-          doc: "Painel Oficial de Checagem do TSE",
-          page: "Eixos de Segurança Pública e Saúde",
-          quote: "«Não há em nenhum dos planos oficiais qualquer diretriz para legalização ou venda de drogas no comércio. Ambos focam em repressão ao tráfico e tratamento em saúde.»"
-        }
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Boato sem registro eleitoral"
       }
-    ];
+    },
+    "source": {
+      "candidate": "Flávio Bolsonaro (PL)",
+      "proposal": "Redução da maioridade penal para 16 anos gerais e 14 anos em crimes hediondos.",
+      "doc": "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
+      "page": "Eixo Segurança Pública ('Brasil Sem Medo'), Pág. 24.",
+      "quote": "«Endurecimento da legislação penal com a diminuição da maioridade penal para 16 anos, e 14 anos nos crimes hediondos, acabando com a sensação de impunidade.»"
+    }
+  },
+  {
+    "id": "FLA_02",
+    "category": "Reforma Administrativa & Estado Enxuto",
+    "question": "Qual candidato estabeleceu como meta oficial cortar no mínimo 10 ministérios e reativar o Programa Nacional de Desestatização (privatizações)?",
+    "correctOption": "B",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos defendem essa medida",
+        "desc": "Plano de choque de gestão"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Informação inverídica"
+      }
+    },
+    "source": {
+      "candidate": "Flávio Bolsonaro (PL)",
+      "proposal": "Redução de ministérios, corte de cargos comissionados e privatização de estatais não estratégicas.",
+      "doc": "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
+      "page": "Eixo Reforma Administrativa e Estado Enxuto, Págs. 35 e 38.",
+      "quote": "«Redução de ao menos 10 pastas ministeriais, corte drástico de cargos comissionados e retomada vigorosa do Programa Nacional de Desestatização.»"
+    }
+  },
+  {
+    "id": "FLA_03",
+    "category": "Combate ao Narcotráfico & Milícias",
+    "question": "Qual candidato registrou a proposta de enquadrar facções criminosas como PCC e Comando Vermelho como 'organizações narcoterroristas'?",
+    "correctOption": "B",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos registram esse enquadramento",
+        "desc": "Proposta compartilhada"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Boato sem respaldo no TSE"
+      }
+    },
+    "source": {
+      "candidate": "Flávio Bolsonaro (PL)",
+      "proposal": "Classificação legal de facções armadas e milícias como organizações narcoterroristas.",
+      "doc": "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
+      "page": "Eixo Segurança Pública ('Brasil Sem Medo'), Pág. 21.",
+      "quote": "«Classificação legal de facções criminosas como PCC, Comando Vermelho e milícias como organizações narcoterroristas, autorizando o emprego pleno da força do Estado.»"
+    }
+  },
+  {
+    "id": "FLA_04",
+    "category": "Reforma Política & Mandato Presidencial",
+    "question": "Qual candidato defende a aprovação de uma PEC para acabar com a reeleição para presidente da República, fixando mandato único?",
+    "correctOption": "B",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos defendem mandato único",
+        "desc": "Pacto de alternância de poder"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Tema ausente nos debates"
+      }
+    },
+    "source": {
+      "candidate": "Flávio Bolsonaro (PL)",
+      "proposal": "Extinção da reeleição no Executivo e cumprimento de mandato único de 5 anos.",
+      "doc": "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
+      "page": "Eixo Reformas Institucionais e Fortalecimento Democrático, Pág. 12.",
+      "quote": "«Defesa intransigente do fim da reeleição para presidente da República, garantindo foco total na administração pública sem contaminação por campanhas eleitorais contínuas.»"
+    }
+  },
+  {
+    "id": "FLA_05",
+    "category": "Forças Armadas & Blindagem de Fronteiras",
+    "question": "Qual candidato registrou no plano de governo a criação de uma 'tropa de elite' das Forças Armadas para patrulhamento armado permanente das fronteiras terrestres?",
+    "correctOption": "B",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos defendem essa tropa",
+        "desc": "Proposta militar conjunta"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Boato de internet"
+      }
+    },
+    "source": {
+      "candidate": "Flávio Bolsonaro (PL)",
+      "proposal": "Criação de tropa de elite militar dedicada a operações especiais nas fronteiras do Brasil.",
+      "doc": "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
+      "page": "Eixo Segurança Pública ('Brasil Sem Medo'), Pág. 26.",
+      "quote": "«Criação de uma força de elite especializada e permanente das Forças Armadas para fechamento e interceptação armada de rotas de tráfico nas fronteiras terrestres.»"
+    }
+  },
+  {
+    "id": "FLA_06",
+    "category": "Tributação & Desoneração",
+    "question": "Qual candidato defende a revisão da reforma tributária para reduzir a alíquota do IVA e desonerar a folha de salários na contratação de jovens de 18 a 24 anos?",
+    "correctOption": "B",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos defendem essa medida",
+        "desc": "Incentivo jovem compartilhado"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Inexistente nos planos"
+      }
+    },
+    "source": {
+      "candidate": "Flávio Bolsonaro (PL)",
+      "proposal": "Redução da alíquota do IVA e desoneração da folha de pagamento para o primeiro emprego jovem.",
+      "doc": "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
+      "page": "Eixo Economia, Mercado e Competitividade, Pág. 44.",
+      "quote": "«Revisão dos parâmetros tributários com teto menor para o IVA e redução drástica de encargos trabalhistas sobre jovens de 18 a 24 anos.»"
+    }
+  },
+  {
+    "id": "FLA_07",
+    "category": "Armas de Fogo & Segurança Rural",
+    "question": "Qual candidato registrou no TSE a garantia do porte e posse estendida de armas de fogo para produtores rurais em toda a extensão de suas propriedades?",
+    "correctOption": "B",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos garantem posse rural ampla",
+        "desc": "Consenso sobre direito no campo"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Matéria não abordada no TSE"
+      }
+    },
+    "source": {
+      "candidate": "Flávio Bolsonaro (PL)",
+      "proposal": "Porte e posse de armas para produtores rurais em todo o perímetro da propriedade.",
+      "doc": "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
+      "page": "Eixo Segurança no Campo e Defesa da Propriedade, Pág. 28.",
+      "quote": "«Assegurar o direito à legítima defesa no campo, autorizando o porte e a posse de armas de fogo em todo o perímetro da propriedade rural.»"
+    }
+  },
+  {
+    "id": "FLA_08",
+    "category": "Educação & Ensino Domiciliar",
+    "question": "Qual candidato defende expressamente a regulamentação do Homeschooling (educação domiciliar) e a ampliação do modelo de escolas cívico-militares?",
+    "correctOption": "B",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos defendem o Homeschooling",
+        "desc": "Diretriz educacional convergente"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Iniciativa sem registro formal"
+      }
+    },
+    "source": {
+      "candidate": "Flávio Bolsonaro (PL)",
+      "proposal": "Regulamentação federal do Homeschooling e fortalecimento das escolas cívico-militares.",
+      "doc": "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
+      "page": "Eixo Educação, Liberdade e Família, Pág. 52.",
+      "quote": "«Garantia do direito das famílias à educação domiciliar (homeschooling) e incentivo prioritário às escolas cívico-militares com foco em disciplina e mérito.»"
+    }
+  },
+  {
+    "id": "FLA_09",
+    "category": "Economia & Disciplina Fiscal",
+    "question": "Qual candidato registrou no plano de governo a manutenção irrestrita da autonomia do Banco Central e o corte de despesas correntes para zerar o déficit público?",
+    "correctOption": "B",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos defendem essa meta rígida",
+        "desc": "Meta fiscal bipartidária"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Boato sem respaldo no TSE"
+      }
+    },
+    "source": {
+      "candidate": "Flávio Bolsonaro (PL)",
+      "proposal": "Autonomia do Banco Central e austeridade fiscal pelo corte de despesas obrigatórias.",
+      "doc": "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
+      "page": "Eixo Macroeconomia e Responsabilidade Fiscal, Pág. 39.",
+      "quote": "«Preservação incondicional da autonomia legal do Banco Central e aplicação de freio rígido nos gastos públicos para equilíbrio das contas nacionais.»"
+    }
+  },
+  {
+    "id": "FLA_10",
+    "category": "Infraestrutura & Meio Ambiente",
+    "question": "Qual candidato registrou a proposta de licenciamento ambiental simplificado e automático para obras de infraestrutura, ferrovias e agronegócio?",
+    "correctOption": "B",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos registram licenciamento rápido",
+        "desc": "Proposta conjunta"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Boato divulgado em redes sociais"
+      }
+    },
+    "source": {
+      "candidate": "Flávio Bolsonaro (PL)",
+      "proposal": "Desregulamentação e celeridade nos licenciamentos ambientais para obras produtivas.",
+      "doc": "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
+      "page": "Eixo Infraestrutura e Desburocratização, Pág. 47.",
+      "quote": "«Fim dos gargalos ideológicos no licenciamento ambiental, instituindo processos eletrônicos autodeclaratórios para empreendimentos de infraestrutura.»"
+    }
+  },
+  {
+    "id": "FLA_11",
+    "category": "Execução Penal & Saidinha de Presos",
+    "question": "Qual candidato defende formalmente o fim definitivo de quaisquer saidinhas temporárias e a exigência de trabalho obrigatório para presos custearem seus gastos?",
+    "correctOption": "B",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos apoiam trabalho obrigatório",
+        "desc": "Acordo no Congresso Nacional"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Tese jurídica fictícia"
+      }
+    },
+    "source": {
+      "candidate": "Flávio Bolsonaro (PL)",
+      "proposal": "Extinção das saidinhas temporárias e trabalho prisional para ressarcimento ao Estado.",
+      "doc": "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
+      "page": "Eixo Justiça e Sistema Prisional, Pág. 25.",
+      "quote": "«Vedação absoluta de benefícios como saída temporária e imposição do trabalho carcerário para que o criminoso pague integralmente por seu sustento.»"
+    }
+  },
+  {
+    "id": "FLA_12",
+    "category": "Transparência Eleitoral & Voto",
+    "question": "Qual candidato incluiu em suas diretrizes de reforma eleitoral a implementação do voto impresso acoplado à urna eletrônica para auditoria física?",
+    "correctOption": "B",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos defendem voto impresso",
+        "desc": "Projeto institucional conjunto"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Discussão superada sem registro"
+      }
+    },
+    "source": {
+      "candidate": "Flávio Bolsonaro (PL)",
+      "proposal": "Advento do comprovante impresso de votação para conferência física independente.",
+      "doc": "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
+      "page": "Eixo Soberania e Transparência Democrática, Pág. 14.",
+      "quote": "«Adoção de mecanismo auditável de voto impresso junto às urnas eletrônicas para permitir a contagem física pública e recontagem quando solicitada.»"
+    }
+  },
+  {
+    "id": "FLA_13",
+    "category": "Tecnologia & Liberdade Financeira",
+    "question": "Qual candidato defende a segurança regulatória para Criptoativos, Web3 e inteligência artificial, proibindo a taxação abusiva de transações digitais?",
+    "correctOption": "B",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos defendem isenção de cripto",
+        "desc": "Pacto de modernização bancária"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Inexistente nos planos de governo"
+      }
+    },
+    "source": {
+      "candidate": "Flávio Bolsonaro (PL)",
+      "proposal": "Ambiente livre para inovação em Blockchain, tokenização e criptoeconomia sem asfixia tributária.",
+      "doc": "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
+      "page": "Eixo Inovação, Tecnologia e Futuro, Pág. 61.",
+      "quote": "«Estímulo pioneiro ao mercado de criptoativos e finanças descentralizadas, garantindo que o Estado não crie tributos punitivos sobre a inovação.»"
+    }
+  },
+  {
+    "id": "FLA_14",
+    "category": "Gestão Penitenciária & PPPs",
+    "question": "Qual candidato registrou no TSE o modelo de Parcerias Público-Privadas (PPPs) para construção e cogestão de presídios industriais no Brasil?",
+    "correctOption": "B",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos registram presídios privados",
+        "desc": "Consenso federativo"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Medida vedada pela legislação"
+      }
+    },
+    "source": {
+      "candidate": "Flávio Bolsonaro (PL)",
+      "proposal": "PPPs penitenciárias com instalação de fábricas e oficinas dentro das unidades prisionais.",
+      "doc": "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
+      "page": "Eixo Segurança Pública ('Brasil Sem Medo'), Pág. 27.",
+      "quote": "«Atração de capital privado para gestão e infraestrutura prisional por meio de PPPs, transformando presídios em complexos industriais produtivos.»"
+    }
+  },
+  {
+    "id": "FLA_15",
+    "category": "Valorização Policial & Tributos",
+    "question": "Qual candidato incluiu no plano de governo a isenção de Imposto de Renda sobre os vencimentos e adicionais de risco de policiais civis e militares?",
+    "correctOption": "B",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos propõem isenção a policiais",
+        "desc": "Acordo de valorização salarial"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Boato sem respaldo documental"
+      }
+    },
+    "source": {
+      "candidate": "Flávio Bolsonaro (PL)",
+      "proposal": "Isenção tributária de IRPF sobre verbas e salários dos operadores da segurança pública.",
+      "doc": "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
+      "page": "Eixo Segurança Pública ('Brasil Sem Medo'), Pág. 30.",
+      "quote": "«Reconhecimento do sacrifício profissional dos agentes de segurança pública com a desoneração do imposto de renda sobre suas remunerações operacionais.»"
+    }
+  },
+  {
+    "id": "FLA_16",
+    "category": "Propriedade Privada & Demarcações",
+    "question": "Qual candidato defende a aplicação do Marco Temporal para demarcação de terras indígenas e a titulação definitiva com indenização a proprietários rurais?",
+    "correctOption": "B",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos defendem o Marco Temporal",
+        "desc": "Interpretação jurídica de consenso"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Tema ausente dos documentos"
+      }
+    },
+    "source": {
+      "candidate": "Flávio Bolsonaro (PL)",
+      "proposal": "Segurança jurídica no campo mediante respeito estrito ao marco temporal de 1988.",
+      "doc": "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
+      "page": "Eixo Agronegócio, Soberania e Propriedade, Pág. 50.",
+      "quote": "«Cumprimento estrito do marco temporal de 5 de outubro de 1988 para estancar invasões e garantir a intangibilidade dos títulos de propriedade no Brasil.»"
+    }
+  },
+  {
+    "id": "FLA_17",
+    "category": "Matriz Energética & Petróleo",
+    "question": "Qual candidato defende a imediata perfuração e exploração comercial de petróleo e gás na Margem Equatorial brasileira (costa Norte/Nordeste)?",
+    "correctOption": "B",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos defendem sem ressalvas",
+        "desc": "Pacto de royalties petrolíferos"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Exploração proibida por lei"
+      }
+    },
+    "source": {
+      "candidate": "Flávio Bolsonaro (PL)",
+      "proposal": "Abertura irrestrita da exploração petrolífera na Margem Equatorial com leilões internacionais.",
+      "doc": "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
+      "page": "Eixo Energia, Petróleo e Soberania, Pág. 42.",
+      "quote": "«Destravamento imediato das licenças para exploração de petróleo na Margem Equatorial, atraindo petroleiras mundiais para impulsionar a riqueza nacional.»"
+    }
+  },
+  {
+    "id": "FLA_18",
+    "category": "Diplomacia & Alianças Globais",
+    "question": "Qual candidato prioriza explicitamente em sua política externa a formalização de acordos bilaterais de livre comércio com Estados Unidos e Israel?",
+    "correctOption": "B",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos têm essa mesma prioridade",
+        "desc": "Diretriz diplomática comum"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Iniciativa sem registro no TSE"
+      }
+    },
+    "source": {
+      "candidate": "Flávio Bolsonaro (PL)",
+      "proposal": "Alinhamento prioritário com as nações do Ocidente e cooperação tecnológica com Israel e EUA.",
+      "doc": "Plano de Governo 'Para o Brasil Vencer o Atraso' (TSE 2026)",
+      "page": "Eixo Relações Internacionais e Soberania, Pág. 16.",
+      "quote": "«Reposicionamento estratégico da diplomacia brasileira ao lado de democracias sólidas como os Estados Unidos e o Estado de Israel em cooperação comercial e bélica.»"
+    }
+  },
+  {
+    "id": "LUL_01",
+    "category": "Jornada de Trabalho & Escala 6x1",
+    "question": "Qual candidato registrou expressamente a proposta de redução da jornada máxima de trabalho para 40 horas semanais (fim da escala 6x1), sem redução de salários?",
+    "correctOption": "A",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos defendem essa medida",
+        "desc": "Acordo trabalhista bipartidário"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Boato sem registro eleitoral"
+      }
+    },
+    "source": {
+      "candidate": "Luiz Inácio Lula da Silva (PT)",
+      "proposal": "Redução da jornada de trabalho para 40 horas semanais sem corte salarial e superação da escala 6x1.",
+      "doc": "Diretrizes para o Programa de Reconstrução e Transformação do Brasil (TSE 2026)",
+      "page": "Eixo Trabalho, Emprego Digno e Renda, Pág. 18.",
+      "quote": "«Promover a redução da jornada de trabalho sem redução salarial, enfrentando a precarização do trabalho e regimes extenuantes como a escala 6x1.»"
+    }
+  },
+  {
+    "id": "LUL_02",
+    "category": "Segurança Pública Federativa",
+    "question": "Qual candidato registrou no TSE a proposta de criar um Ministério da Segurança Pública exclusivo e autônomo, desvinculado do Ministério da Justiça?",
+    "correctOption": "A",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos defendem esse ministério",
+        "desc": "Proposta de consenso na segurança"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Proposta inexistente nos planos"
+      }
+    },
+    "source": {
+      "candidate": "Luiz Inácio Lula da Silva (PT)",
+      "proposal": "Criação de ministério autônomo para coordenar a segurança pública e integrar o SUSP.",
+      "doc": "Diretrizes para o Programa de Reconstrução e Transformação do Brasil (TSE 2026)",
+      "page": "Eixo Segurança Pública Cidadã e Defesa da Vida, Pág. 31.",
+      "quote": "«Instituição de uma pasta ministerial específica de Segurança Pública para coordenar a política nacional integrada com estados e municípios.»"
+    }
+  },
+  {
+    "id": "LUL_03",
+    "category": "Trabalhadores por Aplicativo",
+    "question": "Qual candidato prevê regras de proteção previdenciária, piso remuneratório e transparência algorítmica para motoristas e entregadores de plataformas?",
+    "correctOption": "A",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos regulamentam os aplicativos",
+        "desc": "Marco legal negociado"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Tema ausente nos planos oficiais"
+      }
+    },
+    "source": {
+      "candidate": "Luiz Inácio Lula da Silva (PT)",
+      "proposal": "Marco regulatório protetivo para trabalhadores de plataformas digitais com direitos previdenciários.",
+      "doc": "Diretrizes para o Programa de Reconstrução e Transformação do Brasil (TSE 2026)",
+      "page": "Eixo Trabalho, Emprego Digno e Renda, Pág. 19.",
+      "quote": "«Assegurar direitos trabalhistas, cobertura previdenciária e remuneração mínima digna aos trabalhadores mediados por aplicativos e plataformas digitais.»"
+    }
+  },
+  {
+    "id": "LUL_04",
+    "category": "Saúde & Envelhecimento Ativo",
+    "question": "Qual candidato registrou no TSE o programa 'Brasil Sorridente 60+' para próteses dentárias gratuitas e ampliação da telemedicina no SUS?",
+    "correctOption": "A",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos têm essa proposta odontológica",
+        "desc": "Programa de saúde bucal conjunto"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Boato sem registro formal"
+      }
+    },
+    "source": {
+      "candidate": "Luiz Inácio Lula da Silva (PT)",
+      "proposal": "Expansão da saúde bucal com próteses dentárias para a terceira idade e telemedicina no SUS.",
+      "doc": "Diretrizes para o Programa de Reconstrução e Transformação do Brasil (TSE 2026)",
+      "page": "Eixo Saúde Pública e Cuidado Integral, Pág. 27.",
+      "quote": "«Fortalecimento do Brasil Sorridente com linha de cuidado odontológico prioritário para idosos e digitalização dos atendimentos especializados no SUS.»"
+    }
+  },
+  {
+    "id": "LUL_05",
+    "category": "Educação Básica & Tempo Integral",
+    "question": "Qual candidato colocou como meta prioritária a universalização das creches públicas e a expansão da escola em tempo integral em regime de colaboração com os estados?",
+    "correctOption": "A",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos têm essa mesma meta",
+        "desc": "Pacto nacional pela educação"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Informação sem registro no TSE"
+      }
+    },
+    "source": {
+      "candidate": "Luiz Inácio Lula da Silva (PT)",
+      "proposal": "Universalização da educação infantil e expansão de matrículas em escolas de tempo integral.",
+      "doc": "Diretrizes para o Programa de Reconstrução e Transformação do Brasil (TSE 2026)",
+      "page": "Eixo Educação Emancipatória e Futuro, Pág. 23.",
+      "quote": "«Garantir a expansão célere das vagas em creches públicas e alcançar a meta do PNE de 50% dos alunos da educação básica em tempo integral.»"
+    }
+  },
+  {
+    "id": "LUL_06",
+    "category": "Transição Ecológica & Neoindustrialização",
+    "question": "Qual candidato propõe aliar o Plano de Transição Ecológica e bioeconomia aos investimentos públicos do Novo PAC para descarbonização da indústria nacional?",
+    "correctOption": "A",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos registram a neoindustrialização verde",
+        "desc": "Plano econômico comum"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Tema rejeitado pelos candidatos"
+      }
+    },
+    "source": {
+      "candidate": "Luiz Inácio Lula da Silva (PT)",
+      "proposal": "Transição ecológica com financiamento do BNDES e Novo PAC para impulsionar a indústria limpa.",
+      "doc": "Diretrizes para o Programa de Reconstrução e Transformação do Brasil (TSE 2026)",
+      "page": "Eixo Desenvolvimento Sustentável e Neoindustrialização, Pág. 14.",
+      "quote": "«Liderar a transição ecológica global, articulando os investimentos do Novo PAC e a bioeconomia na modernização descarbonizada do parque produtivo brasileiro.»"
+    }
+  },
+  {
+    "id": "LUL_07",
+    "category": "Tributação & Isenção de IRPF",
+    "question": "Qual candidato estabeleceu como compromisso oficial a isenção de Imposto de Renda para quem ganha até R$ 5.000 mensais com compensação sobre lucros e dividendos de super-ricos?",
+    "correctOption": "A",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos prometem isenção de R$ 5 mil",
+        "desc": "Compromisso fiscal compartilhado"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Boato sem registro formal"
+      }
+    },
+    "source": {
+      "candidate": "Luiz Inácio Lula da Silva (PT)",
+      "proposal": "Isenção da tabela de IRPF até 5 mil reais e taxação progressiva sobre grandes patrimônios e lucros.",
+      "doc": "Diretrizes para o Programa de Reconstrução e Transformação do Brasil (TSE 2026)",
+      "page": "Eixo Justiça Tributária e Distribuição de Renda, Pág. 16.",
+      "quote": "«Garantir a isenção de imposto de renda para rendimentos do trabalho de até R$ 5.000,00, promovendo justiça fiscal com tributação dos super-ricos.»"
+    }
+  },
+  {
+    "id": "LUL_08",
+    "category": "Juventude & Programa Pé-de-Meia",
+    "question": "Qual candidato incluiu como política prioritária a expansão do programa 'Pé-de-Meia' para poupança e bolsa mensal a todos os estudantes do ensino médio público?",
+    "correctOption": "A",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos têm programas idênticos de poupança",
+        "desc": "Ação de permanência escolar"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Inexistente no TSE"
+      }
+    },
+    "source": {
+      "candidate": "Luiz Inácio Lula da Silva (PT)",
+      "proposal": "Consolidação e expansão do programa Pé-de-Meia para combater a evasão escolar de jovens.",
+      "doc": "Diretrizes para o Programa de Reconstrução e Transformação do Brasil (TSE 2026)",
+      "page": "Eixo Educação e Juventude com Oportunidades, Pág. 24.",
+      "quote": "«Ampliação da cobertura do programa Pé-de-Meia, assegurando apoio financeiro contínuo e poupança de formatura para que os jovens não abandonem os estudos.»"
+    }
+  },
+  {
+    "id": "LUL_09",
+    "category": "Meio Ambiente & Clima",
+    "question": "Qual candidato registrou a meta oficial de Desmatamento Zero na Amazônia e em todos os biomas brasileiros até 2030, fortalecendo Ibama e ICMBio?",
+    "correctOption": "A",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos estabelecem Desmatamento Zero",
+        "desc": "Meta climática de consenso"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Meta ausente dos documentos"
+      }
+    },
+    "source": {
+      "candidate": "Luiz Inácio Lula da Silva (PT)",
+      "proposal": "Compromisso de desmatamento zero em todos os biomas até 2030 e recomposição da fiscalização.",
+      "doc": "Diretrizes para o Programa de Reconstrução e Transformação do Brasil (TSE 2026)",
+      "page": "Eixo Meio Ambiente, Clima e Soberania Ecológica, Pág. 36.",
+      "quote": "«Meta inegociável de desmatamento zero até 2030, recuperando o papel de fiscalização do Ibama e ICMBio com apoio de monitoramento satelital e inteligência.»"
+    }
+  },
+  {
+    "id": "LUL_10",
+    "category": "Petrobras & Conteúdo Nacional",
+    "question": "Qual candidato defende a retomada da exigência de 'conteúdo nacional' para encomendas navais e industriais da Petrobras, reativando os estaleiros brasileiros?",
+    "correctOption": "A",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos defendem reserva de mercado",
+        "desc": "Diretriz da indústria petrolífera"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Tema não constante no registro"
+      }
+    },
+    "source": {
+      "candidate": "Luiz Inácio Lula da Silva (PT)",
+      "proposal": "Política de compras públicas da Petrobras com preferência e fomento à indústria naval nacional.",
+      "doc": "Diretrizes para o Programa de Reconstrução e Transformação do Brasil (TSE 2026)",
+      "page": "Eixo Energia, Soberania e Indústria Estratégica, Pág. 15.",
+      "quote": "«Uso do poder de compra da Petrobras e do Estado para encomendar navios e plataformas no Brasil, reerguendo a indústria naval e gerando empregos qualificados.»"
+    }
+  },
+  {
+    "id": "LUL_11",
+    "category": "Crédito Popular & Empreendedorismo",
+    "question": "Qual candidato registrou a continuidade e ampliação dos programas 'Acredita' e 'Desenrola' para renegociação de dívidas e microcrédito orientado a mulheres?",
+    "correctOption": "A",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos têm o programa Desenrola",
+        "desc": "Programa conjunto"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Boato divulgado em redes"
+      }
+    },
+    "source": {
+      "candidate": "Luiz Inácio Lula da Silva (PT)",
+      "proposal": "Políticas de renegociação de dívidas das famílias e microcrédito produtivo orientado para MEIs.",
+      "doc": "Diretrizes para o Programa de Reconstrução e Transformação do Brasil (TSE 2026)",
+      "page": "Eixo Economia Popular Solidária e Microcrédito, Pág. 21.",
+      "quote": "«Consolidar as ações de desnegativação financeira das famílias e garantir linhas de crédito barato para microempreendedores individuais, com foco nas mulheres.»"
+    }
+  },
+  {
+    "id": "LUL_12",
+    "category": "Territórios Indígenas & Quilombolas",
+    "question": "Qual candidato estabelece como prioridade a aceleração das demarcações e homologações de terras indígenas e titulação coletiva de territórios quilombolas?",
+    "correctOption": "A",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos priorizam homologações amplas",
+        "desc": "Diretriz agrária compartilhada"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Assunto sem proposta registrada"
+      }
+    },
+    "source": {
+      "candidate": "Luiz Inácio Lula da Silva (PT)",
+      "proposal": "Reconhecimento constitucional dos direitos territoriais dos povos originários e comunidades tradicionais.",
+      "doc": "Diretrizes para o Programa de Reconstrução e Transformação do Brasil (TSE 2026)",
+      "page": "Eixo Direitos Humanos, Povos Indígenas e Igualdade Racial, Pág. 34.",
+      "quote": "«Avançar na homologação de terras indígenas e titulação de quilombos, assegurando proteção física contra invasões e preservação das culturas ancestrais.»"
+    }
+  },
+  {
+    "id": "LUL_13",
+    "category": "Inteligência Artificial & Big Techs",
+    "question": "Qual candidato defende a regulação soberana e ética da Inteligência Artificial e das Big Techs no Brasil, com foco em combate a algoritmos discriminatórios?",
+    "correctOption": "A",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos defendem essa regulação",
+        "desc": "Pacto de telecomunicações"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Tema omitido pelos candidatos"
+      }
+    },
+    "source": {
+      "candidate": "Luiz Inácio Lula da Silva (PT)",
+      "proposal": "Plano Brasileiro de Inteligência Artificial com regulação ética e combate à desinformação algorítmica.",
+      "doc": "Diretrizes para o Programa de Reconstrução e Transformação do Brasil (TSE 2026)",
+      "page": "Eixo Soberania Digital, Ciência e Tecnologia, Pág. 26.",
+      "quote": "«Construir a soberania digital do Brasil com regulação democrática das plataformas e desenvolvimento de inteligência artificial voltada ao interesse público e inclusão.»"
+    }
+  },
+  {
+    "id": "LUL_14",
+    "category": "Saúde Especializada & Filas do SUS",
+    "question": "Qual candidato registrou o programa 'Mais Médicos Especialistas' com policlínicas regionais para zerar filas de consultas, exames e cirurgias eletivas?",
+    "correctOption": "A",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos têm programa idêntico de policlínicas",
+        "desc": "Consenso na saúde"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Medida sem previsão orçamentária"
+      }
+    },
+    "source": {
+      "candidate": "Luiz Inácio Lula da Silva (PT)",
+      "proposal": "Expansão de policlínicas e formação de especialistas médicos pelo programa Mais Médicos.",
+      "doc": "Diretrizes para o Programa de Reconstrução e Transformação do Brasil (TSE 2026)",
+      "page": "Eixo Saúde Pública e Redução de Filas, Pág. 28.",
+      "quote": "«Enfrentar as filas do SUS por meio da ampliação do Mais Especialistas e implantação de policlínicas regionais integradas com centros diagnósticos de ponta.»"
+    }
+  },
+  {
+    "id": "LUL_15",
+    "category": "Salário Mínimo & Poder de Compra",
+    "question": "Qual candidato estabelece a política permanente de aumento real do Salário Mínimo corrigido pela inflação mais a variação positiva do PIB?",
+    "correctOption": "A",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos adotam a mesma fórmula do PIB",
+        "desc": "Consenso salarial nacional"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Boato sem respaldo no TSE"
+      }
+    },
+    "source": {
+      "candidate": "Luiz Inácio Lula da Silva (PT)",
+      "proposal": "Manutenção da lei de valorização real permanente do salário mínimo atrelada ao crescimento econômico.",
+      "doc": "Diretrizes para o Programa de Reconstrução e Transformação do Brasil (TSE 2026)",
+      "page": "Eixo Trabalho, Emprego Digno e Renda, Pág. 17.",
+      "quote": "«Garantir a política perene de valorização do salário mínimo com ganho real anual baseado no crescimento do PIB, resgatando o poder de compra da classe trabalhadora.»"
+    }
+  },
+  {
+    "id": "LUL_16",
+    "category": "Geopolítica & Expansão do BRICS",
+    "question": "Qual candidato defende o fortalecimento da integração sul-americana (Mercosul/Unasul) e o protagonismo do Brasil no bloco ampliado dos BRICS?",
+    "correctOption": "A",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos priorizam o bloco BRICS",
+        "desc": "Diretriz internacional comum"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Proposta inexistente nos planos"
+      }
+    },
+    "source": {
+      "candidate": "Luiz Inácio Lula da Silva (PT)",
+      "proposal": "Diplomacia ativa, fortalecimento do multilateralismo e protagonismo no Sul Global e BRICS.",
+      "doc": "Diretrizes para o Programa de Reconstrução e Transformação do Brasil (TSE 2026)",
+      "page": "Eixo Inserção Internacional Soberana e Multipolar, Pág. 38.",
+      "quote": "«Retomada da liderança do Brasil no cenário multilateral, estreitando laços com os países vizinhos da América do Sul e fortalecendo o bloco dos BRICS.»"
+    }
+  },
+  {
+    "id": "LUL_17",
+    "category": "Ferrovias & Logística Sustentável",
+    "question": "Qual candidato colocou como prioridade da carteira de transportes do Novo PAC a conclusão e expansão de malhas ferroviárias de passageiros e carga?",
+    "correctOption": "A",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos têm a mesma carteira ferroviária",
+        "desc": "Plano nacional de transportes"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Proposta ausente dos planos"
+      }
+    },
+    "source": {
+      "candidate": "Luiz Inácio Lula da Silva (PT)",
+      "proposal": "Transição da matriz de transportes para o modal ferroviário com investimentos do Novo PAC.",
+      "doc": "Diretrizes para o Programa de Reconstrução e Transformação do Brasil (TSE 2026)",
+      "page": "Eixo Infraestrutura Sustentável e Logística, Pág. 20.",
+      "quote": "«Estimular a expansão ferroviária de cargas e trens de passageiros no âmbito do Novo PAC, reduzindo emissões e custos de frete logístico no país.»"
+    }
+  },
+  {
+    "id": "LUL_18",
+    "category": "Ações Afirmativas & Concursos",
+    "question": "Qual candidato registrou o aprimoramento e ampliação das cotas raciais, indígenas e para pessoas com deficiência em todos os concursos públicos da União?",
+    "correctOption": "A",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Coligação Brasil da Esperança"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Coligação Para o Brasil Vencer o Atraso"
+      },
+      "C": {
+        "text": "Ambos propõem ampliação de cotas",
+        "desc": "Acordo institucional"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Assunto sem previsão formal"
+      }
+    },
+    "source": {
+      "candidate": "Luiz Inácio Lula da Silva (PT)",
+      "proposal": "Aperfeiçoamento da Lei de Cotas no serviço público com aumento de percentuais inclusivos.",
+      "doc": "Diretrizes para o Programa de Reconstrução e Transformação do Brasil (TSE 2026)",
+      "page": "Eixo Igualdade Racial, Diversidade e Inclusão, Pág. 33.",
+      "quote": "«Aprimorar e ampliar a legislação de cotas nos concursos federais para garantir representatividade efetiva da população negra, indígena e PcD no Estado.»"
+    }
+  },
+  {
+    "id": "AMB_01",
+    "category": "Transferência de Renda & Assistência Social",
+    "question": "Qual dos candidatos garante expressamente em seu plano oficial a manutenção dos programas federais de transferência de renda (como o Bolsa Família) para famílias vulneráveis?",
+    "correctOption": "C",
+    "options": {
+      "A": {
+        "text": "Apenas Lula (PT)",
+        "desc": "Flávio pretende extinguir o benefício"
+      },
+      "B": {
+        "text": "Apenas Flávio Bolsonaro (PL)",
+        "desc": "Lula propõe substituir por vouchers"
+      },
+      "C": {
+        "text": "Ambos os Candidatos (TSE)",
+        "desc": "Compromisso formal registrado em ambos os planos"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Ambos planejam congelar o auxílio"
+      }
+    },
+    "source": {
+      "candidate": "Lula (PT) e Flávio Bolsonaro (PL)",
+      "proposal": "Manutenção e aperfeiçoamento da rede de proteção e transferência de renda para famílias vulneráveis.",
+      "doc": "Planos Oficiais no TSE (PT: Pág. 11 / PL: Pág. 41)",
+      "page": "Eixo Seguridade Social e Erradicação da Pobreza.",
+      "quote": "«Ambos os planos de governo garantem expressamente a continuidade de pagamentos mínimos mensais a famílias em situação de vulnerabilidade com condicionalidades de saúde e educação.»"
+    }
+  },
+  {
+    "id": "AMB_02",
+    "category": "Educação Profissional & Ensino Técnico",
+    "question": "Qual dos candidatos defende em seu plano de governo a expansão das vagas em cursos técnicos e profissionalizantes integrados ao ensino médio para a juventude?",
+    "correctOption": "C",
+    "options": {
+      "A": {
+        "text": "Apenas Lula (PT)",
+        "desc": "Foco exclusivo nos Institutos Federais (IFs)"
+      },
+      "B": {
+        "text": "Apenas Flávio Bolsonaro (PL)",
+        "desc": "Foco no Sistema S e capacitação privada"
+      },
+      "C": {
+        "text": "Ambos os Candidatos (TSE)",
+        "desc": "Ambos priorizam o ensino técnico profissional"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Nenhum deles registrou essa proposta"
+      }
+    },
+    "source": {
+      "candidate": "Lula (PT) e Flávio Bolsonaro (PL)",
+      "proposal": "Ampliação de vagas no ensino técnico integrado para rápida inserção dos jovens no mercado de trabalho.",
+      "doc": "Planos Oficiais no TSE (PT: Pág. 24 / PL: Pág. 54)",
+      "page": "Eixo Educação e Qualificação para o Trabalho.",
+      "quote": "«Tanto Lula quanto Flávio convergem na urgência de conectar o ensino médio à capacitação técnica para elevar a produtividade e garantir o primeiro emprego.»"
+    }
+  },
+  {
+    "id": "AMB_03",
+    "category": "Saúde & Farmácia Popular",
+    "question": "Qual dos candidatos registrou no plano de governo o compromisso formal de manter e expandir o fornecimento de medicamentos essenciais pelo programa Farmácia Popular?",
+    "correctOption": "C",
+    "options": {
+      "A": {
+        "text": "Apenas Lula (PT)",
+        "desc": "Criador histórico do programa Farmácia Popular"
+      },
+      "B": {
+        "text": "Apenas Flávio Bolsonaro (PL)",
+        "desc": "Defesa do programa pelo modelo de credenciamento"
+      },
+      "C": {
+        "text": "Ambos os Candidatos (TSE)",
+        "desc": "Compromisso de ampliação nos dois programas oficiais"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Proposta ausente dos planos de saúde"
+      }
+    },
+    "source": {
+      "candidate": "Lula (PT) e Flávio Bolsonaro (PL)",
+      "proposal": "Garantia e expansão da distribuição gratuita ou subsidiada de medicamentos contínuos (diabetes, hipertensão).",
+      "doc": "Planos Oficiais no TSE (PT: Pág. 29 / PL: Pág. 58)",
+      "page": "Eixo Assistência Farmacêutica e Acesso a Medicamentos.",
+      "quote": "«A sustentabilidade e descentralização do programa Farmácia Popular constam nas diretrizes de ambos os candidatos como direito garantido da população.»"
+    }
+  },
+  {
+    "id": "AMB_04",
+    "category": "Agronegócio & Crédito Rural",
+    "question": "Qual dos candidatos prevê em seu documento oficial a ampliação do crédito rural e apoio à infraestrutura e escoamento da safra do agronegócio?",
+    "correctOption": "C",
+    "options": {
+      "A": {
+        "text": "Apenas Flávio Bolsonaro (PL)",
+        "desc": "Apoio exclusivo ao agro empresarial"
+      },
+      "B": {
+        "text": "Apenas Lula (PT)",
+        "desc": "Apoio exclusivo pela via do Plano Safra"
+      },
+      "C": {
+        "text": "Ambos os Candidatos (TSE)",
+        "desc": "Ambos preveem expansão do financiamento agropecuário"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Tema omitido pelos dois concorrentes"
+      }
+    },
+    "source": {
+      "candidate": "Lula (PT) e Flávio Bolsonaro (PL)",
+      "proposal": "Aporte de recursos e garantia de seguro para safras agrícolas e melhoria da logística de escoamento.",
+      "doc": "Planos Oficiais no TSE (PT: Pág. 21 / PL: Pág. 48)",
+      "page": "Eixo Agricultura, Produção de Alimentos e Competitividade.",
+      "quote": "«O financiamento robusto da produção rural através de crédito subsidiado e modernização logística é reconhecido por ambos como pilar do superávit comercial.»"
+    }
+  },
+  {
+    "id": "AMB_05",
+    "category": "Inclusão Digital & Escolas Conectadas",
+    "question": "Qual dos candidatos inclui como meta oficial conectar 100% das escolas públicas municipais e estaduais com internet banda larga e tecnologia 5G?",
+    "correctOption": "C",
+    "options": {
+      "A": {
+        "text": "Apenas Lula (PT)",
+        "desc": "Projeto do Plano Nacional de Educação Digital"
+      },
+      "B": {
+        "text": "Apenas Flávio Bolsonaro (PL)",
+        "desc": "Projeto do leilão 5G e parcerias com operadoras"
+      },
+      "C": {
+        "text": "Ambos os Candidatos (TSE)",
+        "desc": "Meta compartilhada por ambos os programas de governo"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Nenhum registrou prazo para internet nas escolas"
+      }
+    },
+    "source": {
+      "candidate": "Lula (PT) e Flávio Bolsonaro (PL)",
+      "proposal": "Universalização da internet de alta velocidade e conectividade em todas as escolas públicas.",
+      "doc": "Planos Oficiais no TSE (PT: Pág. 25 / PL: Pág. 63)",
+      "page": "Eixo Inclusão Digital e Tecnologia na Educação.",
+      "quote": "«A universalização da conectividade 5G e banda larga nas salas de aula é diretriz comum presente nos documentos de ambas as coligações.»"
+    }
+  },
+  {
+    "id": "AMB_06",
+    "category": "Saneamento Básico & Universalização",
+    "question": "Qual dos candidatos estabelece a meta de atingir a universalização do saneamento básico (água tratada e coleta de esgoto) no Brasil até 2033?",
+    "correctOption": "C",
+    "options": {
+      "A": {
+        "text": "Apenas Flávio Bolsonaro (PL)",
+        "desc": "Defesa do Marco Legal do Saneamento privado"
+      },
+      "B": {
+        "text": "Apenas Lula (PT)",
+        "desc": "Defesa de investimentos públicos com estatais e municípios"
+      },
+      "C": {
+        "text": "Ambos os Candidatos (TSE)",
+        "desc": "Ambos têm como objetivo a meta legal de universalização"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Meta descartada pelos candidatos"
+      }
+    },
+    "source": {
+      "candidate": "Lula (PT) e Flávio Bolsonaro (PL)",
+      "proposal": "Cumprimento das metas de 99% da população com água tratada e 90% com coleta de esgoto até 2033.",
+      "doc": "Planos Oficiais no TSE (PT: Pág. 32 / PL: Pág. 49)",
+      "page": "Eixo Infraestrutura Urbana, Saúde e Meio Ambiente.",
+      "quote": "«Apesar de divergirem no modelo de execução (privatizações vs. estatais), ambos os candidatos assumem a meta legal de 2033 para erradicação do déficit de saneamento.»"
+    }
+  },
+  {
+    "id": "AMB_07",
+    "category": "Energias Renováveis & Solar/Eólica",
+    "question": "Qual dos candidatos defende a expansão maciça de usinas solares e eólicas no Nordeste, aproveitando o potencial de geração limpa e hidrogênio verde?",
+    "correctOption": "C",
+    "options": {
+      "A": {
+        "text": "Apenas Lula (PT)",
+        "desc": "Eixo da transição ecológica do PAC"
+      },
+      "B": {
+        "text": "Apenas Flávio Bolsonaro (PL)",
+        "desc": "Eixo da atração de investimentos privados no Nordeste"
+      },
+      "C": {
+        "text": "Ambos os Candidatos (TSE)",
+        "desc": "Ambos destacam as energias solar e eólica como prioridade"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Ambos priorizam térmicas a carvão"
+      }
+    },
+    "source": {
+      "candidate": "Lula (PT) e Flávio Bolsonaro (PL)",
+      "proposal": "Incentivo a leilões de energia solar, eólica offshore e plantas de hidrogênio verde no Brasil.",
+      "doc": "Planos Oficiais no TSE (PT: Pág. 16 / PL: Pág. 43)",
+      "page": "Eixo Transição Energética e Matriz Limpa.",
+      "quote": "«A expansão das energias renováveis é tratada como vocação natural do Brasil nos dois planos de governo registrados perante a Justiça Eleitoral.»"
+    }
+  },
+  {
+    "id": "AMB_08",
+    "category": "Alimentação Escolar & Nutrição Infantil",
+    "question": "Qual dos candidatos defende em seu plano oficial o aumento do orçamento da merenda escolar na rede pública e o combate à desnutrição infantil?",
+    "correctOption": "C",
+    "options": {
+      "A": {
+        "text": "Apenas Lula (PT)",
+        "desc": "Pelo Programa Nacional de Alimentação Escolar (PNAE)"
+      },
+      "B": {
+        "text": "Apenas Flávio Bolsonaro (PL)",
+        "desc": "Pela priorização da compra de produtores locais"
+      },
+      "C": {
+        "text": "Ambos os Candidatos (TSE)",
+        "desc": "Ambos preveem reforço e ampliação da merenda escolar"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Tema omitido em ambos os registros"
+      }
+    },
+    "source": {
+      "candidate": "Lula (PT) e Flávio Bolsonaro (PL)",
+      "proposal": "Reajuste continuado e compras locais para garantia de refeições de qualidade a crianças da rede pública.",
+      "doc": "Planos Oficiais no TSE (PT: Pág. 26 / PL: Pág. 56)",
+      "page": "Eixo Primeira Infância, Saúde e Nutrição Escolar.",
+      "quote": "«Ambos os planos colocam a nutrição nas escolas públicas como ferramenta indispensável para o aprendizado e retenção dos estudantes.»"
+    }
+  },
+  {
+    "id": "AMB_09",
+    "category": "Governo Digital & Desburocratização",
+    "question": "Qual dos candidatos propõe a ampliação contínua dos serviços públicos 100% digitais pelo aplicativo Gov.br, eliminando filas físicas e certidões em papel?",
+    "correctOption": "C",
+    "options": {
+      "A": {
+        "text": "Apenas Flávio Bolsonaro (PL)",
+        "desc": "Eixo do Choque Tecnológico no Estado"
+      },
+      "B": {
+        "text": "Apenas Lula (PT)",
+        "desc": "Eixo da Modernização Cidadã da Máquina Pública"
+      },
+      "C": {
+        "text": "Ambos os Candidatos (TSE)",
+        "desc": "Ambos têm na plataforma Gov.br uma diretriz central"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Ambos propõem retorno ao atendimento físico"
+      }
+    },
+    "source": {
+      "candidate": "Lula (PT) e Flávio Bolsonaro (PL)",
+      "proposal": "Digitalização e integração completa de prontuários, carteiras funcionais e certidões na plataforma federal.",
+      "doc": "Planos Oficiais no TSE (PT: Pág. 37 / PL: Pág. 36)",
+      "page": "Eixo Transformação Digital e Eficiência Pública.",
+      "quote": "«A transformação do Estado em um ecossistema digital integrado e acessível por smartphone é defendida expressamente nas duas campanhas.»"
+    }
+  },
+  {
+    "id": "AMB_10",
+    "category": "Pequenos Negócios & Simples Nacional",
+    "question": "Qual dos candidatos garante expressamente a preservação do regime tributário diferenciado do Simples Nacional e o apoio aos Microempreendedores Individuais (MEIs)?",
+    "correctOption": "C",
+    "options": {
+      "A": {
+        "text": "Apenas Flávio Bolsonaro (PL)",
+        "desc": "Proposta liberal de apoio aos pequenos negócios"
+      },
+      "B": {
+        "text": "Apenas Lula (PT)",
+        "desc": "Proposta de fortalecimento da economia popular"
+      },
+      "C": {
+        "text": "Ambos os Candidatos (TSE)",
+        "desc": "Ambos blindam o Simples Nacional de qualquer aumento de imposto"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Ambos planejam extinguir o MEI"
+      }
+    },
+    "source": {
+      "candidate": "Lula (PT) e Flávio Bolsonaro (PL)",
+      "proposal": "Blindagem do Simples Nacional e simplificação burocrática para criação e manutenção de microempresas.",
+      "doc": "Planos Oficiais no TSE (PT: Pág. 19 / PL: Pág. 45)",
+      "page": "Eixo Micro e Pequenas Empresas e Geração de Emprego.",
+      "quote": "«Tanto Lula quanto Flávio afirmam a intangibilidade do Simples Nacional como motor de sobrevivência da classe média empreendedora brasileira.»"
+    }
+  },
+  {
+    "id": "AMB_11",
+    "category": "Aviação Regional & Integração",
+    "question": "Qual dos candidatos prevê investimentos para ampliação de aeroportos regionais e barateamento do combustível de aviação no interior do Brasil?",
+    "correctOption": "C",
+    "options": {
+      "A": {
+        "text": "Apenas Flávio Bolsonaro (PL)",
+        "desc": "Pelo estímulo à desregulamentação das companhias aéreas"
+      },
+      "B": {
+        "text": "Apenas Lula (PT)",
+        "desc": "Pelo programa Voa Brasil e investimentos públicos do PAC"
+      },
+      "C": {
+        "text": "Ambos os Candidatos (TSE)",
+        "desc": "Ambos incluem projetos para fomento da aviação regional"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Tema ausente dos planos de transporte"
+      }
+    },
+    "source": {
+      "candidate": "Lula (PT) e Flávio Bolsonaro (PL)",
+      "proposal": "Fortalecimento das rotas aéreas para o interior e reforma de pistas e terminais regionais.",
+      "doc": "Planos Oficiais no TSE (PT: Pág. 22 / PL: Pág. 46)",
+      "page": "Eixo Integração Nacional e Mobilidade Aérea.",
+      "quote": "«A interiorização do transporte aéreo e a melhoria dos aeroportos regionais constam formalmente nos projetos de infraestrutura de ambos os candidatos.»"
+    }
+  },
+  {
+    "id": "AMB_12",
+    "category": "Vacinação Infantil & Imunização",
+    "question": "Qual dos candidatos registrou o compromisso formal de garantir o fornecimento gratuito e ininterrupto de todas as vacinas do Programa Nacional de Imunizações (PNI)?",
+    "correctOption": "C",
+    "options": {
+      "A": {
+        "text": "Apenas Lula (PT)",
+        "desc": "Defesa histórica das campanhas públicas do PNI"
+      },
+      "B": {
+        "text": "Apenas Flávio Bolsonaro (PL)",
+        "desc": "Garantia de acesso voluntário e gratuito no SUS"
+      },
+      "C": {
+        "text": "Ambos os Candidatos (TSE)",
+        "desc": "Ambos garantem todas as vacinas do PNI gratuitas no SUS"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Ambos planejam privatizar as vacinas infantis"
+      }
+    },
+    "source": {
+      "candidate": "Lula (PT) e Flávio Bolsonaro (PL)",
+      "proposal": "Garantia de abastecimento pleno e gratuito de vacinas essenciais do calendário infantil do SUS.",
+      "doc": "Planos Oficiais no TSE (PT: Pág. 30 / PL: Pág. 59)",
+      "page": "Eixo Imunização e Prevenção Epidemiológica.",
+      "quote": "«A gratuidade e a disponibilidade de imunizantes do PNI em postos de saúde de todo o país são asseguradas nos planos de governo de ambos os candidatos.»"
+    }
+  },
+  {
+    "id": "FAK_01",
+    "category": "Mitos & Boatos Eleitorais (Auditoria TSE)",
+    "question": "Qual candidato registrou no plano de governo a proposta de fechar igrejas, templos religiosos ou restringir a liberdade de culto no Brasil?",
+    "correctOption": "D",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Acusação frequente de opositores"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Acusação de grupos contrários"
+      },
+      "C": {
+        "text": "Ambos propõem fechamento de templos",
+        "desc": "Acordo de secularização"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Boato desmentido oficialmente pelo TSE (Fato ou Boato)"
+      }
+    },
+    "source": {
+      "candidate": "Nenhum dos candidatos (Boato de Redes Sociais)",
+      "proposal": "Inexistente. A Constituição (Art. 5º, VI) e ambos os planos asseguram ampla liberdade religiosa.",
+      "doc": "Auditoria Oficial TSE — Seção Fato ou Boato",
+      "page": "Checagem Oficial Eleições 2026.",
+      "quote": "«É FAKE NEWS: Nenhum candidato registrou qualquer intenção de fechar igrejas ou limitar cultos. Ambos os planos reafirmam o compromisso inegociável com a liberdade religiosa e proteção aos templos.»"
+    }
+  },
+  {
+    "id": "FAK_02",
+    "category": "Mitos & Boatos Eleitorais (Auditoria TSE)",
+    "question": "Qual candidato registrou no plano de governo a proposta de confiscar a caderneta de poupança ou investimentos privados dos cidadãos?",
+    "correctOption": "D",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Rumor espalhado sobre controle bancário"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Rumor divulgado sobre intervenção econômica"
+      },
+      "C": {
+        "text": "Ambos planejam confiscar poupanças",
+        "desc": "Boato sobre pacto financeiro"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Mentira desmentida pelo Banco Central e pelo TSE"
+      }
+    },
+    "source": {
+      "candidate": "Nenhum dos candidatos (Boato de WhatsApp)",
+      "proposal": "Inexistente. A Emenda Constitucional nº 32/2001 proíbe expressamente o confisco de ativos financeiros no Brasil.",
+      "doc": "Auditoria Oficial TSE / Banco Central do Brasil",
+      "page": "Nota Técnica de Segurança Jurídica Bancária.",
+      "quote": "«É FAKE NEWS: Não existe qualquer proposta de confisco de poupança ou investimentos. Tal medida é inconstitucional e terminantemente rechaçada por ambos os candidatos.»"
+    }
+  },
+  {
+    "id": "FAK_03",
+    "category": "Mitos & Boatos Eleitorais (Auditoria TSE)",
+    "question": "Qual candidato registrou no plano de governo a proposta de extinguir o 13º salário ou as férias remuneradas dos trabalhadores com carteira assinada?",
+    "correctOption": "D",
+    "options": {
+      "A": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Boato divulgado em correntes de sindicatos"
+      },
+      "B": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Boato divulgado sobre flexibilização extrema"
+      },
+      "C": {
+        "text": "Ambos defendem extinguir o 13º",
+        "desc": "Rumor sobre reforma trabalhista ampla"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Direito pétreo garantido na CF/88 (Art. 7º)"
+      }
+    },
+    "source": {
+      "candidate": "Nenhum dos candidatos (Boato Trabalhista)",
+      "proposal": "Inexistente. O 13º salário e férias são direitos pétreos fundamentais garantidos no Artigo 7º da Constituição.",
+      "doc": "Auditoria Oficial TSE — Checagem de Propostas Trabalhistas",
+      "page": "Painel de Integridade Eleitoral.",
+      "quote": "«É FAKE NEWS: Nenhum candidato registrou a extinção do 13º salário ou das férias. Ambos os planos asseguram a manutenção integral dos direitos constitucionais consolidados.»"
+    }
+  },
+  {
+    "id": "FAK_04",
+    "category": "Mitos & Boatos Eleitorais (Auditoria TSE)",
+    "question": "Qual candidato registrou no plano de governo a proposta de legalizar irrestritamente a venda de todas as drogas no comércio varejista do Brasil?",
+    "correctOption": "D",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Acusação disseminada em vídeos virais"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Acusação espalhada em postagens anônimas"
+      },
+      "C": {
+        "text": "Ambos propõem liberação geral de drogas",
+        "desc": "Boato sem fundamento jurídico"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Desmentido formalmente pelas campanhas e checagens"
+      }
+    },
+    "source": {
+      "candidate": "Nenhum dos candidatos (Boato sobre Drogas)",
+      "proposal": "Inexistente. Nenhum candidato protocolou liberação de drogas no comércio comum.",
+      "doc": "Auditoria Oficial TSE / Comprova / Fato ou Fake",
+      "page": "Relatório de Desinformação em Campanhas.",
+      "quote": "«É FAKE NEWS: Não consta em nenhum plano registrado a legalização indiscriminada do comércio de entorpecentes. Trata-se de montagens e desinformação recorrente.»"
+    }
+  },
+  {
+    "id": "FAK_05",
+    "category": "Mitos & Boatos Eleitorais (Auditoria TSE)",
+    "question": "Qual candidato registrou proposta para criar uma taxa ou imposto sobre transferências Pix realizadas por pessoas físicas?",
+    "correctOption": "D",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Boato viral atribuindo tributação do Pix ao governo"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Boato atribuindo criação de nova tarifa bancária"
+      },
+      "C": {
+        "text": "Ambos planejam taxar o Pix",
+        "desc": "Rumor sobre acordo de arrecadação"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Desmentido formalmente pelo Banco Central e TSE"
+      }
+    },
+    "source": {
+      "candidate": "Nenhum dos candidatos (Boato de WhatsApp sobre Pix)",
+      "proposal": "Inexistente. O Pix para pessoas físicas é gratuito por regulamentação estrita do Banco Central.",
+      "doc": "Auditoria Oficial TSE / Banco Central do Brasil",
+      "page": "Desmentido Oficial Pix Gratuito.",
+      "quote": "«É FAKE NEWS: O Banco Central e ambos os candidatos já desmentiram reiteradas vezes qualquer proposta de cobrança de taxas sobre transferências Pix entre pessoas físicas.»"
+    }
+  },
+  {
+    "id": "FAK_06",
+    "category": "Mitos & Boatos Eleitorais (Auditoria TSE)",
+    "question": "Qual candidato propõe no plano oficial cancelar compulsoriamente a Carteira Nacional de Habilitação (CNH) de motoristas idosos acima de 60 anos?",
+    "correctOption": "D",
+    "options": {
+      "A": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Boato sobre restrição de mobilidade urbana"
+      },
+      "B": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Boato sobre novas regras de trânsito severas"
+      },
+      "C": {
+        "text": "Ambos defendem cancelamento de CNH de idosos",
+        "desc": "Corrente de desinformação"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Mentira fabricada; renovação segue critérios médicos da lei"
+      }
+    },
+    "source": {
+      "candidate": "Nenhum dos candidatos (Boato sobre Trânsito)",
+      "proposal": "Inexistente. O Código de Trânsito Brasileiro garante a renovação da CNH mediante aptidão física e mental em qualquer idade.",
+      "doc": "Auditoria Oficial TSE / Senatran",
+      "page": "Checagem de Fake News no Trânsito.",
+      "quote": "«É FAKE NEWS: Nenhum plano eleitoral prevê cancelamento de CNH para maiores de 60 anos. As regras de renovação continuam baseadas em exames de saúde regulares.»"
+    }
+  },
+  {
+    "id": "FAK_07",
+    "category": "Mitos & Boatos Eleitorais (Auditoria TSE)",
+    "question": "Qual candidato registrou no TSE a proposta de confiscar rebanhos de gado ou desapropriar pequenas propriedades rurais produtivas da agricultura familiar?",
+    "correctOption": "D",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Boato espalhado em grupos do agronegócio"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Boato espalhado em assentamentos rurais"
+      },
+      "C": {
+        "text": "Ambos planejam confiscar gado",
+        "desc": "Rumor apócrifo de internet"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "A CF/88 proíbe desapropriação de propriedade produtiva (Art. 185)"
+      }
+    },
+    "source": {
+      "candidate": "Nenhum dos candidatos (Boato Rural)",
+      "proposal": "Inexistente. A Constituição Federal protege expressamente a pequena e média propriedade produtiva no Artigo 185.",
+      "doc": "Auditoria Oficial TSE — Seção Fato ou Boato no Agro",
+      "page": "Painel de Proteção à Produção Rural.",
+      "quote": "«É FAKE NEWS: A pequena propriedade produtiva é insuscetível de desapropriação para reforma agrária. Nenhum candidato propõe confisco de rebanhos ou terras familiares.»"
+    }
+  },
+  {
+    "id": "FAK_08",
+    "category": "Mitos & Boatos Eleitorais (Auditoria TSE)",
+    "question": "Qual candidato registrou no plano de governo o fim e a proibição definitiva da circulação de dinheiro em papel-moeda físico no Brasil?",
+    "correctOption": "D",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Boato sobre digitalização compulsória da economia"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Boato sobre rastreamento total dos cidadãos"
+      },
+      "C": {
+        "text": "Ambos propõem extinguir o dinheiro físico",
+        "desc": "Teoria conspiratória compartilhada"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "O Real em espécie continua com curso forçado legal no país"
+      }
+    },
+    "source": {
+      "candidate": "Nenhum dos candidatos (Boato sobre Moeda Digital)",
+      "proposal": "Inexistente. O Real em papel segue garantido pela Lei nº 9.069/1995 e pela autoridade do Banco Central.",
+      "doc": "Auditoria Oficial TSE / Casa da Moeda do Brasil",
+      "page": "Nota Oficial sobre Circulação do Real.",
+      "quote": "«É FAKE NEWS: A circulação do papel-moeda não será proibida ou extinta. O desenvolvimento do Drex (real digital) é complementar e não anula o dinheiro em espécie.»"
+    }
+  },
+  {
+    "id": "FAK_09",
+    "category": "Mitos & Boatos Eleitorais (Auditoria TSE)",
+    "question": "Qual candidato propôs a extinção do sigilo do voto para que as preferências eleitorais dos cidadãos se tornem públicas e monitoradas?",
+    "correctOption": "D",
+    "options": {
+      "A": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Acusação de opositores sobre controle político"
+      },
+      "B": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Acusação de adversários sobre vigilância estatal"
+      },
+      "C": {
+        "text": "Ambos defendem o voto aberto ao público",
+        "desc": "Acordo fictício de transparência"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "O voto secreto é cláusula pétrea da Constituição (Art. 60, § 4º)"
+      }
+    },
+    "source": {
+      "candidate": "Nenhum dos candidatos (Boato Institucional)",
+      "proposal": "Inexistente. O sigilo do voto é cláusula pétrea inalterável e garantida pelo sistema de votação eletrônico.",
+      "doc": "Auditoria Oficial TSE — Garantias Constitucionais do Eleitor",
+      "page": "Cartilha de Cidadania Eleitoral 2026.",
+      "quote": "«É FAKE NEWS: O voto direto, secreto, universal e periódico é cláusula pétrea imutável da República. Nenhuma proposta de abertura do voto existe nos planos registrados.»"
+    }
+  },
+  {
+    "id": "FAK_10",
+    "category": "Mitos & Boatos Eleitorais (Auditoria TSE)",
+    "question": "Qual candidato propõe no TSE doar moradias prontas e pagar salário fixo vitalício do governo para qualquer cidadão estrangeiro que entrar no Brasil?",
+    "correctOption": "D",
+    "options": {
+      "A": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Boato sobre política de acolhimento de refugiados"
+      },
+      "B": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Boato sobre vistos humanitários especiais"
+      },
+      "C": {
+        "text": "Ambos oferecem salários vitalícios a estrangeiros",
+        "desc": "Corrente de ódio e desinformação"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "Não há previsão de moradia automática ou salário gratuito para estrangeiros"
+      }
+    },
+    "source": {
+      "candidate": "Nenhum dos candidatos (Boato sobre Imigração)",
+      "proposal": "Inexistente. A Lei de Migração (Lei nº 13.445/2017) não concede moradias automáticas ou salários vitalícios.",
+      "doc": "Auditoria Oficial TSE / Ministério da Justiça",
+      "page": "Checagem de Políticas Migratórias.",
+      "quote": "«É FAKE NEWS: Nenhum candidato propõe doação de casas ou salários especiais a estrangeiros. O acesso a programas sociais segue as regras universais de extrema pobreza.»"
+    }
+  },
+  {
+    "id": "FAK_11",
+    "category": "Mitos & Boatos Eleitorais (Auditoria TSE)",
+    "question": "Qual candidato registrou no plano de governo a cobrança obrigatória de mensalidades em dinheiro para todos os estudantes de graduação das Universidades Federais?",
+    "correctOption": "D",
+    "options": {
+      "A": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Boato de entidades estudantis sobre privatização"
+      },
+      "B": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Boato sobre cobrança de pós-graduação estendida"
+      },
+      "C": {
+        "text": "Ambos defendem cobrança de mensalidades",
+        "desc": "Pacto de autofinanciamento do ensino superior"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "O ensino público em estabelecimentos oficiais é gratuito na CF/88 (Art. 206)"
+      }
+    },
+    "source": {
+      "candidate": "Nenhum dos candidatos (Boato Universitário)",
+      "proposal": "Inexistente. A gratuidade do ensino público superior é princípio constitucional explícito do Artigo 206 da Carta Magna.",
+      "doc": "Auditoria Oficial TSE — Checagem sobre Ensino Superior",
+      "page": "Relatório de Mitos na Educação Pública.",
+      "quote": "«É FAKE NEWS: A gratuidade do ensino superior público federal é princípio constitucional irrevogável e mantida nos dois planos de governo oficiais.»"
+    }
+  },
+  {
+    "id": "FAK_12",
+    "category": "Mitos & Boatos Eleitorais (Auditoria TSE)",
+    "question": "Qual candidato colocou no plano oficial a implantação permanente de toque de recolher noturno para a população civil após as 22h?",
+    "correctOption": "D",
+    "options": {
+      "A": {
+        "text": "Flávio Bolsonaro (PL)",
+        "desc": "Boato atribuindo militarização extrema das cidades"
+      },
+      "B": {
+        "text": "Luiz Inácio Lula da Silva (PT)",
+        "desc": "Boato atribuindo controle estatal sobre circulação"
+      },
+      "C": {
+        "text": "Ambos defendem o toque de recolher nacional",
+        "desc": "Teoria conspiratória de redes sociais"
+      },
+      "D": {
+        "text": "Nenhum dos dois (Fake News)",
+        "desc": "A liberdade de locomoção em tempo de paz é garantida pela CF/88 (Art. 5º, XV)"
+      }
+    },
+    "source": {
+      "candidate": "Nenhum dos candidatos (Boato de Estado de Exceção)",
+      "proposal": "Inexistente. A liberdade de locomoção em território nacional em tempo de paz é direito fundamental do Artigo 5º da CF.",
+      "doc": "Auditoria Oficial TSE — Direitos e Garantias Individuais",
+      "page": "Painel de Checagem Institucional.",
+      "quote": "«É FAKE NEWS: A liberdade de locomoção de todos os cidadãos é inviolável em tempo de paz. Não existe qualquer menção a toque de recolher nos planos das campanhas.»"
+    }
+  }
+];
 
     /* ==========================================================================
        ESCADA CLÁSSICA DE PRÊMIOS DO SHOW DO MILHÃO
