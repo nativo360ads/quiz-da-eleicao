@@ -1647,6 +1647,9 @@
           if (!voices || !voices.length) return;
 
           const isPt = v => v.lang === 'pt-BR' || v.lang === 'pt_BR' || (v.lang && v.lang.startsWith('pt'));
+          const ptVoices = voices.filter(isPt);
+          if (!ptVoices.length) return;
+
           const isFemale = v => {
             const n = ((v.name || '') + ' ' + (v.voiceURI || '')).toLowerCase();
             return n.includes('maria') || n.includes('francisca') || n.includes('luciana') || 
@@ -1654,7 +1657,8 @@
                    n.includes('leticia') || n.includes('letícia') || n.includes('thalita') || 
                    n.includes('vitória') || n.includes('vitoria') || n.includes('fernanda') || 
                    n.includes('raquel') || n.includes('camila') || n.includes('female') || 
-                   n.includes('mulher') || n.includes('zira');
+                   n.includes('mulher') || n.includes('zira') || n.includes('#female') ||
+                   n.includes('-female');
           };
           const isMale = v => {
             const n = ((v.name || '') + ' ' + (v.voiceURI || '')).toLowerCase();
@@ -1664,20 +1668,27 @@
                    n.includes('lúcio') || n.includes('thiago') || n.includes('tiago') || 
                    n.includes('ricardo') || n.includes('marcos') || n.includes('duarte') || 
                    n.includes('joaquim') || n.includes('male') || n.includes('homem') || 
-                   n.includes('guy') || n.includes('man') || n.includes('pt-br-x-afs#male');
+                   n.includes('guy') || n.includes('man') || n.includes('pt-br-x-afs#male') ||
+                   n.includes('pt-br-x-afd') || n.includes('pt-br-x-afc') || n.includes('voice 2') ||
+                   n.includes('voz 2') || n.includes('voice 4') || n.includes('voz 4');
           };
 
-          // 1. Prioridade absoluta: Voz em Português explicitamente Masculina
-          let chosen = voices.find(v => isPt(v) && isMale(v));
+          // 1. Prioridade absoluta: Voz em Português explicitamente Masculina por nome ou tag
+          let chosen = ptVoices.find(isMale);
 
-          // 2. Segunda opção: Voz em Português que NÃO seja feminina conhecida
-          if (!chosen) {
-            chosen = voices.find(v => isPt(v) && !isFemale(v));
+          // 2. Se não achou por nome e tiver mais de 1 voz no celular (ex: Android tem Voz 1 feminina e Voz 2 masculina)
+          if (!chosen && ptVoices.length > 1) {
+            // Tenta pegar uma voz que NÃO seja feminina
+            chosen = ptVoices.find(v => !isFemale(v));
+            // Se todas tiverem nome genérico ("Google português do Brasil"), a segunda (índice 1) é masculina no Android!
+            if (!chosen || isFemale(chosen)) {
+              chosen = ptVoices[1];
+            }
           }
 
-          // 3. Fallback: Qualquer voz em português se só houver uma instalada
+          // 3. Fallback
           if (!chosen) {
-            chosen = voices.find(v => isPt(v));
+            chosen = ptVoices.find(v => !isFemale(v)) || ptVoices[0];
           }
 
           this.bestVoice = chosen || null;
@@ -1705,8 +1716,8 @@
         if (this.bestVoice) utterance.voice = this.bestVoice;
         utterance.lang = 'pt-BR';
         utterance.rate = 1.05; // Ritmo firme e dinâmico de apresentador de TV
-        // Tom masculino encorpado: pitch 0.82 abaixa a frequência para um timbre de barítono masculino (estilo W Sales)
-        utterance.pitch = 0.82;
+        // Tom masculino encorpado: pitch 0.80 abaixa a frequência para um timbre de barítono masculino (estilo W Sales)
+        utterance.pitch = 0.80;
         utterance.volume = 1.0;
         window.speechSynthesis.speak(utterance);
       }
